@@ -1,6 +1,6 @@
 // HelpOverlay.tsx
 import { useState } from "react";
-import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image } from "@chakra-ui/react";
+import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link } from "@chakra-ui/react";
 import { QuestionIcon, CloseIcon } from "@chakra-ui/icons";
 import ReactMarkdown from "react-markdown";
 import { css, jsx } from '@emotion/react';
@@ -89,12 +89,14 @@ const HelpOverlay = () => {
                 objectFit="contain"
                 mr={4}
               />
-              <Image 
-                src="/github.png" 
-                alt="Github" 
-                width={140} 
-                objectFit="contain"
-              />
+              <Link href="https://github.com/lukketsvane/storygen" isExternal>
+            <Image 
+              src="/github.png" 
+              alt="Github" 
+              width={140} 
+              objectFit="contain"
+            />
+          </Link>
             </Button>
 
           </Box>
