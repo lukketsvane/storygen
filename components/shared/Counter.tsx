@@ -15,7 +15,7 @@ const Counter = () => {
   }, []);
 
   return (
-    <div>Total Stories Generated: {count}</div>
+    <div>Fortellinger laget: {count}</div>
   );
 };
 

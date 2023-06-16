@@ -4,6 +4,7 @@ import { NextSeo } from "next-seo";
 import DescriptionInput from "@/components/DescriptionInput";
 import StoryOutput from "@/components/StoryOutput";
 import { database } from '@/firebase';
+import Counter from "@/components/shared/Counter"; // Import Counter here
 
 export default function Home() {
   const [description, setDescription] = useState<string | null>("");
@@ -46,7 +47,7 @@ export default function Home() {
           database={database}
         />
         <StoryOutput description={description} story={story} loading={loading} />
-
+        <Counter />
         <Text color="gray.500" textAlign="center" pb='-12' mx='6' pt='-2'>
           laga av{" "}
           <Link href="https://www.spleis.no/project/324720" color="teal.500">
