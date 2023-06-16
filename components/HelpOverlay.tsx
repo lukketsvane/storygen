@@ -1,37 +1,10 @@
-import { useState } from "react";
-import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, Stack, AspectRatio } from "@chakra-ui/react";
+import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio } from "@chakra-ui/react";
 import { QuestionIcon, CloseIcon } from "@chakra-ui/icons";
 import ReactMarkdown from "react-markdown";
-import { css, jsx } from '@emotion/react';
-import Counter from "./shared/Counter"; // Import Counter
-
+import Counter from "@/components/shared/Counter";
 
 const HelpOverlay = () => {
   const { isOpen, onToggle } = useDisclosure();
-
-  const content = `
-  # StoryGen 📖
-
-  StoryGen lar brukere generere personlige, engasjerende og kreative historier for barn. 
-
-  ## Hvordan det fungerer
-
-  1. **skap unike historier:** Angi en kort beskrivelse av elementene som skal inkluderes i historien, for eksempel karakterer, innstillinger, handlinger eller andre ideer.
-  2. **produser en fortelling:** Ved å trykke på "Generer historie"-knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie.
-  3. **prøv lykken** Hvis du er usikker på hva du skal skrive, kan du trykke på "Jeg prøver lykken"-knappen for å fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som så brukes til å generere en historie.
-
-  ## Videre planer
-
-  Målet er å fortsette utviklingen og implementere nye funksjoner for å forbedre brukeropplevelsen. Hver måned blir et nytt veldedig formål valgt for å bidra til. Besøk gjerne Github-siden for oppdateringer og muligheter for å bidra til prosjektet. Støtte til videreutvikling kan sendes via Vipps:
-  ## Til inntekt for en god sak
-
-  denne månaden bidrar vi til å støtte Dr. Bayan, er dette verktøyet et forsøk på å bidra til samfunnet gjennom teknologisk innovasjon. Målet er å inspirere både unge og gamle til å uttrykke sin kreativitet og nysgjerrighet.
-  `;
-
-  const components = {
-    h1: ({ ...props}) => <Heading size="xl" mt={6} mb={4}{...props} />, // For H1 headings
-    h2: ({ ...props}) => <Heading size="lg" mt={6} mb={2}{...props} />, // For H2 headings
-  }
 
   return (
     <>
@@ -66,9 +39,29 @@ const HelpOverlay = () => {
         >
           <Box bg="white" borderRadius="md" p={8} overflowY="auto" maxH="90vh">
             <ReactMarkdown 
-              components={components}
+              components={{
+                h1: ({ ...props}) => <Heading size="xl" mt={6} mb={4} {...props} />, // For H1 headings
+                h2: ({ ...props}) => <Heading size="lg" mt={6} mb={2} {...props} />, // For H2 headings
+              }}
             >
-              {content}
+              {`
+  # StoryGen 📖
+
+  StoryGen lar brukere generere personlige, engasjerende og kreative historier for barn. 
+
+  ## Hvordan det fungerer
+
+  1. **skap unike historier:** Angi en kort beskrivelse av elementene som skal inkluderes i historien, for eksempel karakterer, innstillinger, handlinger eller andre ideer.
+  2. **produser en fortelling:** Ved å trykke på "Generer historie"-knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie.
+  3. **prøv lykken** Hvis du er usikker på hva du skal skrive, kan du trykke på "Jeg prøver lykken"-knappen for å fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som så brukes til å generere en historie.
+
+  ## Videre planer
+
+  Målet er å fortsette utviklingen og implementere nye funksjoner for å forbedre brukeropplevelsen. Hver måned blir et nytt veldedig formål valgt for å bidra til. Besøk gjerne Github-siden for oppdateringer og muligheter for å bidra til prosjektet. Støtte til videreutvikling kan sendes via Vipps:
+  ## Til inntekt for en god sak
+
+  denne månaden bidrar vi til å støtte Dr. Bayan, er dette verktøyet et forsøk på å bidra til samfunnet gjennom teknologisk innovasjon. Målet er å inspirere både unge og gamle til å uttrykke sin kreativitet og nysgjerrighet.
+  `}
             </ReactMarkdown>
             <Box 
               w="full" 
@@ -90,7 +83,7 @@ const HelpOverlay = () => {
                 <Text fontWeight="bold">Hjelp den syriske legen Bayan å få utøve yrket sitt</Text>
               </Box>
             </Box>
-            <Text mt={4} mb={2}>For å støtte videreutviklingen av StoryGen, kan du vudrdere å bidra med en slant:</Text>
+            <Text mt={4} mb={2}>Hittil har det blitt generert <Counter /> fortellinger. For å støtte videreutviklingen av StoryGen, kan du vurdere å bidra med en slant:</Text>
             <Button 
               as="a"
               href="#"

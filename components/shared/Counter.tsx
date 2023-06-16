@@ -1,33 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { get, ref, set, onValue } from 'firebase/database';
-import { database } from '../../firebase';
+import { useEffect, useState } from "react";
+import { getDatabase, ref, onValue, off } from "firebase/database";
+import { Box } from "@chakra-ui/react";
 
 const Counter = () => {
-  const [count, setCount] = useState(null);
+  const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    const dbRef = ref(database, 'storyCount');
-    const listener = onValue(dbRef, (snapshot) => {
+    const db = getDatabase();
+    const dbRef = ref(db, "storyCount");
+    const callback = (snapshot: any) => {
       setCount(snapshot.val());
-    });
+    };
 
-    return () => listener.off(); // Clean up listener on component unmount
+    onValue(dbRef, callback);
+
+    return () => {
+      off(dbRef, callback); // Detach the listener
+    };
   }, []);
 
-  return (
-    <div>Fortellinger laget: {count}</div>
-  );
-};
-
-export const incrementStoryCount = async () => {
-  const dbRef = ref(database, 'storyCount');
-  const snapshot = await get(dbRef);
-  
-  if (snapshot.exists()) {
-    set(dbRef, snapshot.val() + 1);
-  } else {
-    set(dbRef, 1);
-  }
+  return <Box as="span" color="teal.500" fontWeight="bold">{count}</Box>;
 };
 
 export default Counter;

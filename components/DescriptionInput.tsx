@@ -3,6 +3,7 @@ import { Box, Button, FormControl, FormLabel, Input, Textarea, VStack, HStack, W
 import HelpOverlay from "./HelpOverlay";
 import { incrementStoryCount } from "./shared/Counter"; // Import the incrementStoryCount function
 
+
 type DescriptionInputProps = {
   loading: boolean;
   setDescription: Dispatch<SetStateAction<string | null>>;
@@ -84,7 +85,7 @@ const DescriptionInput = ({
     >
       <VStack spacing={4}>
         <FormControl id="description">
-          <FormLabel color='gray' w="100%" px={0} pb={1}>Skriv inn noen noen historieelementer og la AIen skrive en fortelling i sanntid</FormLabel>
+          <FormLabel color='gray' w="100%" px={0} pb={1}>Dette er et eksperiment i kunstig intelligens for å tilgjengeliggjøre fortellinger. Beskriv noen elementer og AIen gjøre det om til en fortelling i sanntid</FormLabel>
           <Textarea
             isRequired
             value={input}
