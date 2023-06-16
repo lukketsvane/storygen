@@ -3,6 +3,8 @@ import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Lin
 import { QuestionIcon, CloseIcon } from "@chakra-ui/icons";
 import ReactMarkdown from "react-markdown";
 import { css, jsx } from '@emotion/react';
+import Counter from "./shared/Counter"; // Import Counter
+
 
 const HelpOverlay = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -114,7 +116,6 @@ const HelpOverlay = () => {
                 />
               </Link>
             </Button>
-
           </Box>
         </Box>
       )}

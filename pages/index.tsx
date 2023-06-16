@@ -3,7 +3,7 @@ import { Heading, VStack, Image, Link, Text, Box } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import DescriptionInput from "@/components/DescriptionInput";
 import StoryOutput from "@/components/StoryOutput";
-import HelpOverlay from "@/components/HelpOverlay";
+import { database } from '@/firebase';
 
 export default function Home() {
   const [description, setDescription] = useState<string | null>("");
@@ -17,8 +17,6 @@ export default function Home() {
         description="En tjeneste for å generere barnas bokmanus basert på en beskrivelse"
       />
       <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
-
-
         <Box w={["40%", "20%"]} m={2} p={0}>
           <Link href="https://www.spleis.no/project/324720">
             <Image 
@@ -45,6 +43,7 @@ export default function Home() {
           setDescription={setDescription}
           setStory={setStory}
           setLoading={setLoading}
+          database={database}
         />
         <StoryOutput description={description} story={story} loading={loading} />
 
