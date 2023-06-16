@@ -1,6 +1,5 @@
-// HelpOverlay.tsx
 import { useState } from "react";
-import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link } from "@chakra-ui/react";
+import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, Stack, AspectRatio } from "@chakra-ui/react";
 import { QuestionIcon, CloseIcon } from "@chakra-ui/icons";
 import ReactMarkdown from "react-markdown";
 import { css, jsx } from '@emotion/react';
@@ -11,23 +10,20 @@ const HelpOverlay = () => {
   const content = `
   # StoryGen 📖
 
-  StoryGen er et unikt nettbasert verktøy som lar brukere generere personlige, engasjerende og kreative historier for barn. Med et brukervennlig grensesnitt og innovativ AI-drevet teknologi, gjør StoryGen det mulig for alle å bli en forteller.
+  StoryGen lar brukere generere personlige, engasjerende og kreative historier for barn. 
 
   ## Hvordan det fungerer
 
-  1. **Lag din egen historie**: Skriv inn en kort beskrivelse av elementene du ønsker å inkludere i historien din. For eksempel kan du inkludere karakterer, innstillinger, handlinger, eller hvilken som helst annen idé du har.
-  2. **Generer fortelling**: Trykk på "Generer historie" knappen. StoryGen vil deretter bruke din beskrivelse og AI-teknologi til å generere en unik og engasjerende historie.
-  3. **Jeg prøver lykken**: Hvis du er usikker på hva du skal skrive, kan du trykke på "Jeg prøver lykken" knappen. Dette vil fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som StoryGen deretter vil bruke til å generere en historie.
-
-  ## Til inntekt for en god sak
-
-  StoryGen er utviklet av @tastefinger med kjærlighet, til inntekt for [Dr. Bayan](https://www.spleis.no/project/324720). Vi er forpliktet til å bidra til samfunnet gjennom teknologisk innovasjon, og vi håper at vårt prosjekt vil inspirere både unge og gamle til å uttrykke sin kreativitet og nysgjerrighet. 
-
-  Gjennom StoryGen, skaper vi ikke bare historier, men også et samfunn av oppdagere, drømmere, og eventyrere. Bli med oss i dag og begynn å skape din egen unike fortelling!
+  1. **skap unike historier:** Angi en kort beskrivelse av elementene som skal inkluderes i historien, for eksempel karakterer, innstillinger, handlinger eller andre ideer.
+  2. **produser en fortelling:** Ved å trykke på "Generer historie"-knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie.
+  3. **prøv lykken** Hvis du er usikker på hva du skal skrive, kan du trykke på "Jeg prøver lykken"-knappen for å fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som så brukes til å generere en historie.
 
   ## Videre planer
 
-  Vi i StoryGen-teamet har store planer for fremtiden. Vi ønsker å fortsette utviklingen av dette prosjektet og implementere nye funksjoner som kan forbedre brukeropplevelsen. Hver måned velger vi et nytt veldedig formål som nettsiden bidrar til. Følg med på vår [Github-side](https://github.com/lukketsvane/storygen) for oppdateringer og bidra gjerne til prosjektet.
+  Målet er å fortsette utviklingen og implementere nye funksjoner for å forbedre brukeropplevelsen. Hver måned blir et nytt veldedig formål valgt for å bidra til. Besøk gjerne Github-siden for oppdateringer og muligheter for å bidra til prosjektet. Støtte til videreutvikling kan sendes via Vipps:
+  ## Til inntekt for en god sak
+
+  denne månaden bidrar vi til å støtte Dr. Bayan, er dette verktøyet et forsøk på å bidra til samfunnet gjennom teknologisk innovasjon. Målet er å inspirere både unge og gamle til å uttrykke sin kreativitet og nysgjerrighet.
   `;
 
   const components = {
@@ -66,13 +62,33 @@ const HelpOverlay = () => {
           zIndex={10}
           p={2}
         >
-          <Box bg="white" borderRadius="md" p={8} overflowY="auto" maxH="120vh">
+          <Box bg="white" borderRadius="md" p={8} overflowY="auto" maxH="90vh">
             <ReactMarkdown 
               components={components}
             >
               {content}
             </ReactMarkdown>
-            <Text mt={4} mb={2}>For å støtte videreutviklingen av StoryGen, kan du Vippse meg:</Text>
+            <Box 
+              w="full" 
+              boxShadow="" 
+              rounded="md" 
+              overflow="hidden" 
+              mt={4}
+            >
+              <AspectRatio ratio={16 / 6}>
+                <Link href="https://www.spleis.no/project/324720" isExternal>
+                  <Image 
+                    src="https://spleisprod.s3.amazonaws.com/uploads/projects/324720/324720-79f270de-91ee-4f5a-bcd6-ae0aec6cca6c-1800.webp" 
+                    alt="Support Dr. Bayan" 
+                    objectFit="cover"
+                  />
+                </Link>
+              </AspectRatio>
+              <Box p={4} bg="gray.100" userSelect="none">
+                <Text fontWeight="bold">Hjelp den syriske legen Bayan å få utøve yrket sitt</Text>
+              </Box>
+            </Box>
+            <Text mt={4} mb={2}>For å støtte videreutviklingen av StoryGen, kan du vudrdere å bidra med en slant:</Text>
             <Button 
               as="a"
               href="#"
@@ -90,13 +106,13 @@ const HelpOverlay = () => {
                 mr={4}
               />
               <Link href="https://github.com/lukketsvane/storygen" isExternal>
-            <Image 
-              src="/github.png" 
-              alt="Github" 
-              width={140} 
-              objectFit="contain"
-            />
-          </Link>
+                <Image 
+                  src="/github.png" 
+                  alt="Github" 
+                  width={140} 
+                  objectFit="contain"
+                />
+              </Link>
             </Button>
 
           </Box>

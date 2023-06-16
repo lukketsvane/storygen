@@ -19,7 +19,7 @@ export default function Home() {
       <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
 
 
-        <Box w={["40%", "20%"]}>
+        <Box w={["40%", "20%"]} m={2} p={0}>
           <Link href="https://www.spleis.no/project/324720">
             <Image 
               src="/header.png" 
@@ -32,7 +32,7 @@ export default function Home() {
         </Box>
         <Heading
           size={{
-            base: "l",
+            base: "xl",
             md: "xl",
           }}
           color="black"
@@ -48,7 +48,7 @@ export default function Home() {
         />
         <StoryOutput description={description} story={story} loading={loading} />
 
-        <Text color="gray.500" textAlign="center" pb='2'>
+        <Text color="gray.500" textAlign="center" pb='-12' mx='6' pt='-2'>
           laga av{" "}
           <Link href="https://www.spleis.no/project/324720" color="teal.500">
             @tastefinger
