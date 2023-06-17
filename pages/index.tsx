@@ -50,7 +50,7 @@ export default function Home() {
         <Text color="gray.500" textAlign="center" pb='-12' mx='6' pt='-2'>
           laga av{" "}
           <Link href="https://www.spleis.no/project/324720" color="teal.500">
-            @tastefinger
+            @lukketsvane
           </Link>{" "}
           med kjærleik, til innsamling for{" "}
           <Link href="https://www.spleis.no/project/324720" color="teal.500">

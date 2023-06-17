@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard, faCheck } from '@fortawesome/free-solid-svg-icons';
 import LoadingText from "./LoadingText";
 
+
 type StoryOutputProps = {
   description: string | null;
   story: string | null;
@@ -90,7 +91,7 @@ const StoryOutput = ({ description, story, loading, cancelGeneration }: StoryOut
         {!story && !loading && <p style={{color: "white"}}>{DefaultStory}</p>}
         {story && !loading && (
           <IconButton 
-            mt={2}
+            mt={4}
             icon={<FontAwesomeIcon icon={copied ? faCheck : faClipboard} />}
             color={copied ? 'green.400' : 'gray.400'}
             onClick={handleCopy}

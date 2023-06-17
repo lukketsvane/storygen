@@ -1,9 +1,7 @@
-import { FormEventHandler, useState, useRef, SetStateAction, Dispatch, useEffect } from "react";
+import { FormEventHandler, useState, useRef, SetStateAction, Dispatch } from "react";
 import { Box, Button, FormControl, FormLabel, Input, Textarea, VStack, HStack, Wrap, WrapItem } from "@chakra-ui/react";
 import HelpOverlay from "./HelpOverlay";
-import { incrementStoryCount } from "./shared/Counter"; // Import the incrementStoryCount function
-import { database } from '@/firebase';
-
+import incrementStoryCount from "./shared/incrementStoryCount";
 
 type DescriptionInputProps = {
   loading: boolean;
@@ -57,10 +55,9 @@ const DescriptionInput = ({
 
     if (!cancelGeneration.current) {
       setLoading(false);
-      incrementStoryCount(); // Add a call to incrementStoryCount here
+      await incrementStoryCount();
     }
   };
-
 
   const handleCancel: FormEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();

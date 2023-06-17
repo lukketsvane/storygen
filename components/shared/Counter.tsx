@@ -19,7 +19,7 @@ const Counter = () => {
     };
   }, []);
 
-  return <Box as="span" color="teal.500" fontWeight="bold">{count}</Box>;
+  return <Box as="span" color="teal.500" fontWeight="medium">{count}</Box>;
 };
 
 export default Counter;
