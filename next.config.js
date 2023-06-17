@@ -6,4 +6,8 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = {
+  env: {
+    TNL_API_KEY: process.env.TNL_API_KEY,
+  },
+};

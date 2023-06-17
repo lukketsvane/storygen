@@ -25,6 +25,7 @@
     "eventsource-parser": "^1.0.0",
     "fetch": "^1.1.0",
     "firebase": "^9.22.2",
+    "firestore": "^1.1.6",
     "framer-motion": "^10.12.16",
     "next": "13.4.3",
     "next-seo": "^6.0.0",
