@@ -23,7 +23,7 @@ export async function OpenAIStream(message: string) {
     headers: requestHeaders,
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: [
         {
           role: "system",
@@ -32,7 +32,7 @@ export async function OpenAIStream(message: string) {
         },
         { role: "user", content: message },
       ],
-      max_tokens: 500,
+      max_tokens: 2500,
       stream: true,
     }),
   });

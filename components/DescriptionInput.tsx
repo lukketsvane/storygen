@@ -2,6 +2,7 @@ import { FormEventHandler, useState, useRef, SetStateAction, Dispatch, useEffect
 import { Box, Button, FormControl, FormLabel, Input, Textarea, VStack, HStack, Wrap, WrapItem } from "@chakra-ui/react";
 import HelpOverlay from "./HelpOverlay";
 import { incrementStoryCount } from "./shared/Counter"; // Import the incrementStoryCount function
+import { database } from '@/firebase';
 
 
 type DescriptionInputProps = {
