@@ -37,6 +37,7 @@
     "react-markdown": "^8.0.7",
     "react-syntax-highlighter": "^15.5.0",
     "swr": "^2.1.5",
+    "tnl-midjourney-api": "^1.0.3",
     "typescript": "5.0.4",
     "unfetch": "^5.0.0"
   }
