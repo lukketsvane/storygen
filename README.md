@@ -1,41 +1,36 @@
 # StoryGen 📖
-StoryGen lets users generate personalized, engaging, and creative stories for children.
+StoryGen lar brukere generere personlige, engasjerende og kreative historier for barn.
 
-## How it Works
-Create unique stories: Provide a brief description of elements to be included in the story, such as characters, settings, actions, or other ideas.
-Produce a story: By pressing the "Generate Story" button, AI technology uses the description to generate a unique and engaging story.
-Try your luck: If you're unsure what to write, you can press the "Try My Luck" button to fill the text field with a randomly selected sample text, which is then used to generate a story.
+## Hvordan det fungerer
+Lag unike historier: Gi en kort beskrivelse av elementer som skal inkluderes i historien, slik som karakterer, omgivelser, handlinger, eller andre ideer.
+Produser en historie: Ved å trykke på "Generer historie" knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie.
+Prøv lykken: Hvis du er usikker på hva du skal skrive, kan du trykke på "Prøv lykken" knappen for å fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som deretter brukes til å generere en historie.
 
-## Setup
-You'll need an OpenAI API key, which you can get [here](https://openai.com/).
-You'll also need a StoryGen API key, which you can get on our website.
-Add those two keys to a new file named .env, following the .envExample structure.
-That's it! You're ready to go! 🚀
+## Oppsett
+Du trenger en OpenAI API-nøkkel, som du kan få [her](https://openai.com/).
+Du trenger også en StoryGen API-nøkkel, som du kan få på vår nettside.
+Legg til de to nøklene i en ny fil som heter .env, etter strukturen i .envExample.
+Det er det! Du er klar til å starte! 🚀
 
-## Run it Locally
-Open the terminal
-Run `npm install` to grab the necessary packages
-Hit `npm run dev` to start your server on http://localhost:3000
-Having trouble? Make sure you have Node.js installed, and that you're running the latest version of npm. Otherwise open an issue and we'll help you out!
+## Kjør det lokalt
+Åpne terminalen
+Kjør `npm install` for å hente de nødvendige pakkene
+Trykk på `npm run dev` for å starte serveren din på http://localhost:3000
+Har du problemer? Sørg for at du har Node.js installert, og at du kjører den siste versjonen av npm. Ellers, åpne et problem og vi vil hjelpe deg!
 
-## Deploy to the World
-Push all your changes to Github (or another git provider)
-Head to [vercel.app](https://vercel.com/), import your repo, and hit deploy
-Go to settings of the deployment, add your .env, and rebuild
-Not working? Double check your Vercel logs, if there's any timeouts you may need to change plans. You can also host this on your own server!
+## Distribuer til verden
+Push alle endringene dine til Github (eller en annen git-leverandør)
+Gå til [vercel.app](https://vercel.com/), importer repoet ditt, og trykk på deploy
+Gå til innstillingene for utrullingen, legg til .env-filen din, og bygg på nytt
+Fungerer det ikke? Dobbeltsjekk Vercel-loggene dine, hvis det er noen tidsavbrudd kan du måtte endre planer. Du kan også være vert for dette på din egen server!
 
-Congratulations! You're off localhost 😁
+Gratulerer! Du er localhost 😁
 
-## Future Plans
-The goal is to continue development and implement new features to enhance user experience. Every month a new charity cause is chosen to contribute to. Please visit our Github page for updates and opportunities to contribute to the project. Support for further development can be sent via Vipps:
+## Fremtidige planer
+Målet er å fortsette utviklingen og implementere nye funksjoner for å forbedre brukeropplevelsen. Hver måned velges en ny veldedig sak å bidra til. Vennligst besøk vår Github-side for oppdateringer og muligheter til å bidra til prosjektet. Støtte til videre utvikling kan sendes via Vipps:
 
-## For a Good Cause
-This month we're supporting Dr. Bayan, this tool is an attempt to contribute to society through technological innovation. The goal is to inspire both young and old to express their creativity and curiosity.
+## For en god sak
+Denne måneden støtter vi Dr. Bayan, dette verktøyet er et forsøk på å bidra til samfunnet gjennom teknologisk innovasjon. Målet er å inspirere både unge og gamle til å uttrykke sin kreativitet og nysgjerrighet.
 
-## Support Dr. Bayan
 
-So far, 35 stories have been generated. To support the further development of StoryGen, consider contributing:
-
-Enjoy your story-telling journey! 📖 If you love this project, please give it a star ⭐️
-
-Say hi on Twitter! @StoryGenAI
+Nyt din historiefortelling reise! 📖 
