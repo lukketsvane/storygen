@@ -1,7 +1,9 @@
 import { FormEventHandler, useState, useRef, SetStateAction, Dispatch } from "react";
 import { Box, Button, FormControl, FormLabel, Input, Textarea, VStack, HStack, Wrap, WrapItem } from "@chakra-ui/react";
 import HelpOverlay from "./HelpOverlay";
+import LanguageButton from "./LanguageButton";
 import incrementStoryCount from "./shared/incrementStoryCount";
+import { useTranslation } from "react-i18next";
 
 type DescriptionInputProps = {
   loading: boolean;
@@ -16,9 +18,10 @@ const DescriptionInput = ({
   setStory,
   setLoading,
 }: DescriptionInputProps) => {
+  const { t } = useTranslation('common');
   const [input, setInput] = useState("");
   const cancelGeneration = useRef(false);
-  const examples = ['Frøken Frosk hopper høyere enn noen annen i skogen, og hver gang hun lander, skaper hun en miniatyrregnstorm med plaskene.', 'Herr Harepus har ører så lange at de rekker til skyene, og noen ganger må han bøye seg for ikke å henge fast i stjernene.', 'Lille Papegøye er så fargerik at en regnbue virker grå i sammenligning, og hver gang hun flyr, etterlater hun en sti av gnistrende farger.', 'Sir Skilpadde er så treg at han bruker en hel dag på å krysse veien, men han har alltid tid til å stoppe og hjelpe noen som trenger det.', 'Frøken Flamingo har bein så tynne som spaghetti, men hun kan balansere på ett bein lengre enn noen annen i dammen.', 'Herr Elefant har en snabel så stor at han kan bruke den som et periskop, og se over trærne selv når han ligger på magen.', 'Frøken Panda elsker å klatre så høyt at hun kan kikke rett inn i solnedgangen, og hun lager trærne til sine egne private lekeplasser.', 'Sir Pinnsvin er så liten at han kan gjemme seg i et eikenøtteskall, men han har en venn i hver eneste krok av skogen.', 'Kaptein Delfin elsker å svømme så raskt at hun skaper bølger store nok til å surfe på, og hun lar alltid havets musikk guide veien hennes.'];
+  const examples = t('examples', { returnObjects: true });
 
   const handleInput: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -83,12 +86,12 @@ const DescriptionInput = ({
     >
       <VStack spacing={4}>
         <FormControl id="description">
-          <FormLabel color='gray' w="100%" px={0} pb={1}>Dette er et eksperiment i kunstig intelligens for å tilgjengeliggjøre fortellinger. Beskriv noen elementer og AIen gjøre det om til en fortelling i sanntid</FormLabel>
+          <FormLabel color='gray' w="100%" px={0} pb={1}>{t('description')}</FormLabel>
           <Textarea
             isRequired
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Skriv inn beskrivelsen for barneboken"
+            placeholder={t('placeholder')}
             fontFamily="Courier New"
           />
         </FormControl>
@@ -97,26 +100,29 @@ const DescriptionInput = ({
             <Button
               colorScheme="teal"
               isLoading={loading}
-              loadingText="Genererer ..."
+              loadingText={t('generating')}
               type="submit"
             >
-              Generer historie
+              {t('generate')}
             </Button>
           </WrapItem>
           <WrapItem>
             {!loading ? (
               <Button onClick={handleLuck}>
-                Jeg prøver lykken
+                {t('lucky')}
               </Button>
             ) : (
               <Button onClick={handleCancel}>
-                Kanseller
+                {t('cancel')}
               </Button>
             )}
           </WrapItem>
         </Wrap>
       </VStack>
-      <HelpOverlay />
+      <HStack spacing={5} justify="flex-end" position="absolute" top={5} right={0}>
+        <HelpOverlay />
+        <LanguageButton />
+      </HStack>
     </Box>
   );
 };

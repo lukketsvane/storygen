@@ -3,12 +3,17 @@ import {
   ParsedEvent,
   ReconnectInterval,
 } from "eventsource-parser";
+import { useLanguage } from "./LanguageContext";
 
 export async function OpenAIStream(message: string) {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
   let counter = 0;
+
+  const { language } = useLanguage();
+
+  const contentMessage = language === 'no' ? "Basert på gitt BESKRIVELSE, skriv et manus for en illustrert barnebok. Boken skal være maks 25 setninger lang og kan inneholde replikker og tekstbobler. Historien skal være rik på detaljer, dynamisk og strukturert etter prinsippene for god historiefortelling, som Joseph Campbells 'Heros Journey' eller Freytags Pyramid. med en tydelig innledning, hoveddel og en slutt som kan være uventet, bittersøt eller åpen - ikke nødvendigvis lykkelig.  Følg formatet; 'Side {n}: (beskrivelse av scenen) 'tekst''. Hver side skal inneholde en illustrasjon beskrivelse, etterfulgt av teksten. Dialog mellom karakterer kan skrives inne i. Stilen og tonen på historien skal være variert, inspirert av et bredt spekter av forfattere, fra terry pratchett til brødrene grimm, slik at hver historie bringer noe unikt og interessant. I tillegg skal den første setningen være en beskrivelse av en barnebok illustrasjon som fanger fortellingen. Strukturen for dette skal være; karakterbeskrivelse, b eskrivelse av scene og handling, beskrivelse av stil med referanse til kunstner.  Det skal være stikkordformat; og denne beskrivelsen skal være på engelsk." : "English version of the content message";
 
   const requestHeaders: Record<string, string> = {
     "Content-Type": "application/json",
@@ -27,8 +32,7 @@ export async function OpenAIStream(message: string) {
       messages: [
         {
           role: "system",
-          content: 
-          "Basert på gitt BESKRIVELSE, skriv et manus for en illustrert barnebok. Boken skal være maks 25 setninger lang og kan inneholde replikker og tekstbobler. Historien skal være rik på detaljer, dynamisk og strukturert etter prinsippene for god historiefortelling, som Joseph Campbells 'Heros Journey' eller Freytags Pyramid. med en tydelig innledning, hoveddel og en slutt som kan være uventet, bittersøt eller åpen - ikke nødvendigvis lykkelig.  Følg formatet; 'Side {n}: (beskrivelse av scenen) 'tekst''. Hver side skal inneholde en illustrasjon beskrivelse, etterfulgt av teksten. Dialog mellom karakterer kan skrives inne i. Stilen og tonen på historien skal være variert, inspirert av et bredt spekter av forfattere, fra terry pratchett til brødrene grimm, slik at hver historie bringer noe unikt og interessant. I tillegg skal den første setningen være en beskrivelse av en barnebok illustrasjon som fanger fortellingen. Strukturen for dette skal være; karakterbeskrivelse, b eskrivelse av scene og handling, beskrivelse av stil med referanse til kunstner.  Det skal være stikkordformat; og denne beskrivelsen skal være på engelsk."
+          content: contentMessage
         },
         { role: "user", content: message },
       ],

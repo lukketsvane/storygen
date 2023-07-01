@@ -1,0 +1,19 @@
+{
+  "description": "Dette er et eksperiment i kunstig intelligens for å tilgjengeliggjøre fortellinger. Beskriv noen elementer og AIen gjøre det om til en fortelling i sanntid.",
+  "placeholder": "Skriv inn beskrivelsen for barneboken",
+  "generating": "Genererer ...",
+  "generate": "Generer historie",
+  "lucky": "Jeg prøver lykken",
+  "cancel": "Kanseller",
+  "storygen": "StoryGen 📖",
+  "how_it_works": "Hvordan det fungerer",
+  "create_unique_stories": "Skap unike historier: Angi en kort beskrivelse av elementene som skal inkluderes i historien, for eksempel karakterer, innstillinger, handlinger eller andre ideer.",
+  "produce_story": "Produser en fortelling: Ved å trykke på 'Generer historie'-knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie.",
+  "try_luck": "Prøv lykken: Hvis du er usikker på hva du skal skrive, kan du trykke på 'Jeg prøver lykken'-knappen for å fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som så brukes til å generere en historie.",
+  "further_plans": "Videre planer",
+  "goal": "Målet er å fortsette utviklingen og implementere nye funksjoner for å forbedre brukeropplevelsen. Hver måned blir et nytt veldedig formål valgt for å bidra til. Besøk gjerne Github-siden for oppdateringer og muligheter for å bidra til prosjektet. Støtte til videreutvikling kan sendes via Vipps:",
+  "for_good_cause": "Til inntekt for en god sak",
+  "this_month": "Denne måneden bidrar vi til å støtte Dr. Bayan. Dette verktøyet er et forsøk på å bidra til samfunnet gjennom teknologisk innovasjon. Målet er å inspirere både unge og gamle til å uttrykke sin kreativitet og nysgjerrighet.",
+  "help_bayan": "Hjelp den syriske legen Bayan å få utøve yrket sitt",
+  "consider_contribution": "Hittil har det blitt generert <Counter /> fortellinger. For å støtte videreutviklingen av StoryGen, kan du vurdere å bidra med en slant:"
+}
