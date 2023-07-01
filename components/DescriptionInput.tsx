@@ -4,14 +4,12 @@ import HelpOverlay from "./HelpOverlay";
 import LanguageButton from "./LanguageButton";
 import incrementStoryCount from "./shared/incrementStoryCount";
 import { useTranslation } from "next-i18next";
-import { Database } from 'firebase/firestore';
 
 type DescriptionInputProps = {
   loading: boolean;
   setDescription: Dispatch<SetStateAction<string | null>>;
   setStory: Dispatch<SetStateAction<string | null>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
-  database: Database;
 };
 
 const DescriptionInput = ({

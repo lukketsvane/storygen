@@ -1,7 +1,6 @@
 import { Box, Stack, IconButton, useClipboard, useToast } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard, faCheck } from '@fortawesome/free-solid-svg-icons';
 import LoadingText from "./LoadingText";
 
 
