@@ -3,13 +3,15 @@ import { Box, Button, FormControl, FormLabel, Input, Textarea, VStack, HStack, W
 import HelpOverlay from "./HelpOverlay";
 import LanguageButton from "./LanguageButton";
 import incrementStoryCount from "./shared/incrementStoryCount";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { Database } from 'firebase/firestore';
 
 type DescriptionInputProps = {
   loading: boolean;
   setDescription: Dispatch<SetStateAction<string | null>>;
   setStory: Dispatch<SetStateAction<string | null>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
+  database: Database;
 };
 
 const DescriptionInput = ({
@@ -17,6 +19,7 @@ const DescriptionInput = ({
   setDescription,
   setStory,
   setLoading,
+  database,
 }: DescriptionInputProps) => {
   const { t } = useTranslation('common');
   const [input, setInput] = useState("");
@@ -58,7 +61,7 @@ const DescriptionInput = ({
 
     if (!cancelGeneration.current) {
       setLoading(false);
-      await incrementStoryCount();
+      await incrementStoryCount(database);
     }
   };
 

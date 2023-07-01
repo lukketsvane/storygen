@@ -15,5 +15,9 @@
   "for_good_cause": "For a good cause",
   "this_month": "This month we are supporting Dr. Bayan, this tool is an attempt to contribute to the community through technological innovation. The aim is to inspire both young and old to express their creativity and curiosity.",
   "help_bayan": "Help the Syrian doctor Bayan to practice his profession",
-  "consider_contribution": "So far, <Counter /> stories have been generated. To support the further development of StoryGen, consider contributing:"
+  "consider_contribution": "So far, stories have been generated. To support the further development of StoryGen, consider contributing:",
+  "title": "StoryGen",
+  "madeBy": "Made by",
+  "withLove": "with love, for the collection of",
+  "drBayan": "Dr. Bayan"
 }

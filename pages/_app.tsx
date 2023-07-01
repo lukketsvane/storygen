@@ -1,6 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import '../i18next';
+import { appWithTranslation } from "next-i18next";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,4 +10,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ChakraProvider>
   )
 }
-export default MyApp;
+
+export default appWithTranslation(MyApp)
