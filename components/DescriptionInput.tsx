@@ -4,6 +4,10 @@ import HelpOverlay from "./HelpOverlay";
 import LanguageButton from "./LanguageButton";
 import incrementStoryCount from "./shared/incrementStoryCount";
 import { useTranslation } from "next-i18next";
+import { faClipboard, faCheck } from '@fortawesome/free-solid-svg-icons'
+
+
+
 
 type DescriptionInputProps = {
   loading: boolean;
@@ -17,7 +21,6 @@ const DescriptionInput = ({
   setDescription,
   setStory,
   setLoading,
-  database,
 }: DescriptionInputProps) => {
   const { t } = useTranslation('common');
   const [input, setInput] = useState("");
@@ -59,7 +62,7 @@ const DescriptionInput = ({
 
     if (!cancelGeneration.current) {
       setLoading(false);
-      await incrementStoryCount(database);
+      await incrementStoryCount();
     }
   };
 
