@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { Button, Image } from '@chakra-ui/react';
+import { Button, Image, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 
 const LanguageButton = () => {
   const router = useRouter();
@@ -11,9 +12,18 @@ const LanguageButton = () => {
   };
 
   return (
-    <Button onClick={() => changeLanguage(i18n.language === 'en' ? 'no' : 'en')}>
-      <Image src={`/${i18n.language === "en" ? "norwegian-icon" : "english-icon"}.png`} boxSize="24px" />
-    </Button>
+    <Menu>
+      <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+        <Image src={`${i18n.language}-icon.png`} boxSize="24px" />
+      </MenuButton>
+      <MenuList>
+        <MenuItem onClick={() => changeLanguage('en')}>English</MenuItem>
+        <MenuItem onClick={() => changeLanguage('no')}>Norsk</MenuItem>
+        <MenuItem onClick={() => changeLanguage('fr')}>Français</MenuItem>
+        <MenuItem onClick={() => changeLanguage('ar')}>العربية</MenuItem>
+        <MenuItem onClick={() => changeLanguage('es')}>Español</MenuItem>
+      </MenuList>
+    </Menu>
   );
 };
 

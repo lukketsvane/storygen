@@ -2,7 +2,7 @@ import { NextConfig } from 'next/dist/next-server/server/config';
 
 const nextConfig: NextConfig = {
   i18n: {
-    locales: ['en', 'no'],
+    locales: ['en', 'no', 'fr', 'es', 'ar'],
     defaultLocale: 'en',
   },
   reactStrictMode: false,
