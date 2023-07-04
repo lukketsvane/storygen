@@ -8,7 +8,9 @@ const LanguageButton = () => {
   const { i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    router.push(router.asPath, router.route, { locale: lng });
+    router.push(router.asPath, router.route, { locale: lng }).then(() => {
+      window.location.reload(); // Reload the page after changing the language
+    });
   };
 
   const languageIcons = {

@@ -7,6 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   i18n,
+  
   swcMinify: false,
   swcLoader: false,
 }

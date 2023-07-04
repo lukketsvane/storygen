@@ -2,6 +2,7 @@ import { Box, HStack, useToast, useBreakpointValue, Text } from "@chakra-ui/reac
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslation } from "next-i18next";
 
 type FileUploadProps = {
   loading: boolean;
@@ -17,7 +18,9 @@ const FileUploader = ({
   setImagine,
 }: FileUploadProps) => {
   const toast = useToast();
+  const { t } = useTranslation(); // Add this line
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files)
@@ -137,7 +140,7 @@ const FileUploader = ({
               fontWeight="medium"
               pb={0.5}
             >
-              Eller dra inn et bilde {!isMobile && "for å få en inspirert fortelling"}
+            {t("common:dragImageText")} {/* Update this line */}
             </Text>
           )}
         </HStack>
