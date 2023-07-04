@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Heading, VStack, Image, Link, Text, Box } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import DescriptionInput from "@/components/DescriptionInput";
@@ -7,7 +7,9 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import FileUploader from "@/components/FileUploader";
 import StoryOutput from "@/components/StoryOutput";
-import RoastOutput from "@/components/RoastOutput";
+import ImagineOutput from "@/components/ImagineOutput";
+import { useRouter } from "next/router";
+
 
 export default function Home() {
   const { t, i18n } = useTranslation("common");
@@ -15,18 +17,26 @@ export default function Home() {
   const [story, setStory] = useState<string | null>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [image, setImage] = useState<File | null>(null);
-  const [roast, setRoast] = useState<string | null>(null);
-  const [cancelGeneration, setCancelGeneration] = useState<boolean>(false); // Assuming this state is defined in your component
+  const [imagine, setImagine] = useState<string | null>(null);
+  const [cancelGeneration, setCancelGeneration] = useState<boolean>(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const { locale } = router;
+    if (locale !== i18n.language) {
+      changeLanguage(locale);
+    }
+  }, [router.locale]);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+    router.replace(router.asPath, router.asPath, { locale: lng });
   };
 
   return (
     <>
       <NextSeo title={t("title")} description={t("description")} />
       <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
-
         <Heading
           alignContent={{
             base: "left",
@@ -44,7 +54,7 @@ export default function Home() {
           <FileUploader
             loading={loading}
             setImage={setImage}
-            setRoast={setRoast}
+            setImagine={setImagine}
             setLoading={setLoading}
           />
         </Box>
@@ -58,7 +68,7 @@ export default function Home() {
 
         {/* Output component */}
         {image && !story && (
-          <RoastOutput image={image} roast={roast} loading={loading} />
+          <ImagineOutput image={image} imagine={imagine} loading={loading} />
         )}
         {story && (
           <StoryOutput

@@ -4,17 +4,17 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import Image from "next/image";
 import { useState } from "react";
 
-type RoastOutputProps = {
+type ImagineOutputProps = {
   image: File | null;
-  roast: string | null;
+  imagine: string | null;
   loading: boolean;
 };
 
-const DefaultRoast = "Please upload a picture to inspire a story.";
+const DefaultImagine = "Please upload a picture to inspire a story.";
 
-const RoastOutput = ({ image, roast, loading }: RoastOutputProps) => {
-  const formatRoast = (roast: string) => {
-    return roast.replace(/(Side \d+:)/g, '<span style="color: black;">$1</span>');
+const ImagineOutput = ({ image, imagine, loading }: ImagineOutputProps) => {
+  const formatImagine = (imagine: string) => {
+    return imagine.replace(/(Side \d+:)/g, '<span style="color: black;">$1</span>');
   };
 
   return (
@@ -33,12 +33,12 @@ const RoastOutput = ({ image, roast, loading }: RoastOutputProps) => {
         h="full"
         w={{ base: "full", md: "80rem" }}
       >
-        {roast && <Text style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "500" }} dangerouslySetInnerHTML={{ __html: formatRoast(roast.replace(/\n/g, "<br />")) }} />}
+        {imagine && <Text style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "500" }} dangerouslySetInnerHTML={{ __html: formatImagine(imagine.replace(/\n/g, "<br />")) }} />}
         {loading && <LoadingText />}
-        {!roast && !loading && <Text style={{ color: "white" }}>{DefaultRoast}</Text>}
+        {!imagine && !loading && <Text style={{ color: "white" }}>{DefaultImagine}</Text>}
       </Box>
     </Stack>
   );
 };
 
-export default RoastOutput;
+export default ImagineOutput;

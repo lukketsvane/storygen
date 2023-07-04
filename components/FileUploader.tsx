@@ -7,14 +7,14 @@ type FileUploadProps = {
   loading: boolean;
   setLoading: (loading: boolean) => void;
   setImage: (image: File | null) => void;
-  setRoast: (roast: string | null) => void;
+  setImagine: (imagine: string | null) => void;
 };
 
 const FileUploader = ({
   loading,
   setLoading,
   setImage,
-  setRoast,
+  setImagine,
 }: FileUploadProps) => {
   const toast = useToast();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -24,7 +24,7 @@ const FileUploader = ({
       return toast({ title: "No file selected", status: "error" });
 
     setLoading(true);
-    setRoast(null);
+    setImagine(null);
     const file = e.target.files[0];
     setImage(file);
     setSelectedImage(URL.createObjectURL(file));
@@ -33,7 +33,7 @@ const FileUploader = ({
     reader.onloadend = async () => {
       const base64String = reader.result as string;
 
-      const hit = await fetch("/api/roast", {
+      const hit = await fetch("/api/imagine", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,14 +51,14 @@ const FileUploader = ({
 
       const streamReader = streamData.getReader();
       const textDecoder = new TextDecoder();
-      let roastText = "";
+      let imagineText = "";
 
       while (true) {
         const { value, done } = await streamReader.read();
         const chunkValue = textDecoder.decode(value);
 
-        roastText = roastText + chunkValue;
-        setRoast(roastText);
+        imagineText = imagineText + chunkValue;
+        setImagine(imagineText);
 
         if (done) {
           setLoading(false);

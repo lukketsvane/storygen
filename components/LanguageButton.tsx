@@ -12,12 +12,13 @@ const LanguageButton = () => {
   };
 
   const languageIcons = {
-    en: "/en-icon.png",
     no: "/no-icon.png",
+    en: "/en-icon.png",
     fr: "/fr-icon.png",
     ar: "/ar-icon.png",
     es: "/es-icon.png",
-  };
+    zh: "/zh-icon.png",
+  };  
 
   return (
     <Menu>
@@ -34,13 +35,13 @@ const LanguageButton = () => {
       <MenuList
               zIndex={20} // Adjust the zIndex value to be higher than HelpOverlay
               >
-        <MenuItem onClick={() => changeLanguage('en')}>
-          <Image src="/en-icon.png" boxSize="20px" mr={2} />
-          English
-        </MenuItem>
         <MenuItem onClick={() => changeLanguage('no')}>
           <Image src="/no-icon.png" boxSize="20px" mr={2} />
           Norsk
+        </MenuItem>
+        <MenuItem onClick={() => changeLanguage('en')}>
+          <Image src="/en-icon.png" boxSize="20px" mr={2} />
+          English
         </MenuItem>
         <MenuItem onClick={() => changeLanguage('fr')}>
           <Image src="/fr-icon.png" boxSize="20px" mr={2} />
@@ -53,6 +54,10 @@ const LanguageButton = () => {
         <MenuItem onClick={() => changeLanguage('es')}>
           <Image src="/es-icon.png" boxSize="20px" mr={2} />
           Español
+        </MenuItem>
+        <MenuItem onClick={() => changeLanguage('zh')}>
+          <Image src="/zh-icon.png" boxSize="20px" mr={2} />
+          中文
         </MenuItem>
       </MenuList>
     </Menu>

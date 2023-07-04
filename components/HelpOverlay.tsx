@@ -1,12 +1,12 @@
-import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio } from "@chakra-ui/react";
+import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio, useBreakpointValue, UnorderedList, ListItem } from "@chakra-ui/react";
 import { QuestionIcon, CloseIcon } from "@chakra-ui/icons";
-import ReactMarkdown from "react-markdown";
-import Counter from "@/components/shared/Counter";
 import { useTranslation } from "next-i18next";
+import Counter from "./shared/Counter";
 
 const HelpOverlay = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { t } = useTranslation("common");
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <>
@@ -38,28 +38,35 @@ const HelpOverlay = () => {
           bg="rgba(0,0,0,0.5)"
           zIndex={10}
           p={2}
+          overflowX="hidden"
+          overflowY="auto"
         >
-          <Box bg="white" borderRadius="md" p={8} overflowY="auto" maxH="90vh">
-            <Box>
-              <Heading size="xl" mt={6} mb={4}>{t("storyGenTitle")}</Heading>
-              <Text>{t("storyGenDescription")}</Text>
-            </Box>
-            <Box>
-              <Heading size="lg" mt={6} mb={2}>{t("howItWorksTitle")}</Heading>
-              <ol>
-                <li>{t("step1")}</li>
-                <li>{t("step2")}</li>
-                <li>{t("step3")}</li>
-              </ol>
-            </Box>
-            <Box>
-              <Heading size="lg" mt={6} mb={2}>{t("futurePlansTitle")}</Heading>
-              <Text>{t("futurePlansDescription")}</Text>
-            </Box>
-            <Box>
-              <Heading size="lg" mt={6} mb={2}>{t("supportingCauseTitle")}</Heading>
-              <Text>{t("supportingCauseDescription")}</Text>
-            </Box>
+          <Box
+            bg="white"
+            borderRadius="md"
+            p={8}
+            overflowY="auto"
+            maxH="90vh"
+            w={isMobile ? "100vw" : "60%"}
+            mx={isMobile ? 0 : "auto"}
+          >
+            <Heading size="xl" mt={6} mb={4}>{t("storyGenTitle")}</Heading>
+
+            <Text>{t("storyGenDescription")}</Text>
+
+            <Heading size="lg" mt={6} mb={2}>{t("howItWorksTitle")}</Heading>
+            <UnorderedList pl={4} mb={4}>
+              <ListItem>{t("step1")}</ListItem>
+              <ListItem>{t("step2")}</ListItem>
+              <ListItem>{t("step3")}</ListItem>
+            </UnorderedList>
+
+            <Heading size="lg" mt={6} mb={2}>{t("futurePlansTitle")}</Heading>
+            <Text>{t("futurePlansDescription")}</Text>
+
+            <Heading size="lg" mt={6} mb={2}>{t("supportingCauseTitle")}</Heading>
+            <Text>{t("supportingCauseDescription")}</Text>
+
             <Box w="full" boxShadow="" rounded="md" overflow="hidden" mt={4}>
               <AspectRatio ratio={16 / 6}>
                 <Link href="https://www.spleis.no/project/324720" isExternal>
@@ -74,9 +81,11 @@ const HelpOverlay = () => {
                 <Text fontWeight="bold">{t("supportingCauseText")}</Text>
               </Box>
             </Box>
+
             <Text mt={4} mb={2}>
               {t("generatedCountText")} <Counter /> {t("supportDevelopmentText")}
             </Text>
+
             <Button
               as="a"
               href="#"
