@@ -1,4 +1,3 @@
-// ./pages/api/imagine.ts
 import { OpenAIStream } from "@/utils/openai-image";
 
 const MODEL_ID =

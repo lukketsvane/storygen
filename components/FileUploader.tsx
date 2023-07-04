@@ -75,13 +75,13 @@ const FileUploader = ({
 
   const isMobile = useBreakpointValue({ base: true, md: false });
   const iconSize = isMobile ? 32 : 32;
-  const imageSize = "80%";
+  const imageSize = "100%";
   const frameSize = useBreakpointValue({ base: "calc(400px - 32px)", md: "400px" });
 
 
 
   return (
-    <Box display="flex" justifyContent="center" width="screen">
+    <Box display="flex" justifyContent="center" width="screen" x="20">
       <label>
         <input
           type="file"
@@ -90,7 +90,6 @@ const FileUploader = ({
           hidden
           onChange={(e) => handleUpload(e)}
         />
-
         <HStack
           rounded="md"
           px="4"
@@ -104,34 +103,11 @@ const FileUploader = ({
           cursor={loading ? "not-allowed" : "pointer"}
           position="relative"
           overflow="hidden"
-          pb={selectedImage ? 0 : 0.5}
           width={frameSize}
-          height={frameSize}
+          height="fit-content"
         >
-          {selectedImage ? (
-            <Box
-              position="absolute"
-              top="50%"
-              left="50%"
-              transform="translate(-50%, -50%)"
-              padding="8px"
-              width={imageSize}
-              height={imageSize}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Image
-                src={selectedImage}
-                alt="Uploaded Image"
-                layout="fill"
-                objectFit="contain"
-              />
-            </Box>
-          ) : (
+          <HStack spacing="4">
             <AiOutlineCloudUpload size={iconSize} />
-          )}
-          {!selectedImage && (
             <Text
               fontSize={{
                 base: "xs",
@@ -140,9 +116,9 @@ const FileUploader = ({
               fontWeight="medium"
               pb={0.5}
             >
-            {t("common:dragImageText")} {/* Update this line */}
+              {t("common:dragImageText")}
             </Text>
-          )}
+          </HStack>
         </HStack>
       </label>
     </Box>

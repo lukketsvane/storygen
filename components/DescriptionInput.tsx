@@ -4,6 +4,8 @@ import HelpOverlay from "./HelpOverlay";
 import LanguageButton from "./LanguageButton";
 import incrementStoryCount from "./shared/incrementStoryCount";
 import { useTranslation } from "next-i18next";
+import { useRouter } from 'next/router';
+
 
 type DescriptionInputProps = {
   loading: boolean;
@@ -19,6 +21,7 @@ const DescriptionInput = ({
   setLoading,
 }: DescriptionInputProps) => {
   const { t } = useTranslation(['common', 'examples']);
+  const router = useRouter();
   const [input, setInput] = useState("");
   const cancelGeneration = useRef(false);
   const examples = t('examples', { returnObjects: true });
@@ -35,7 +38,7 @@ const DescriptionInput = ({
     const res = await fetch("/api/storygen", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ description: input }),
+      body: JSON.stringify({ description: input, locale: router.locale }),
     });
 
     if (res.body) {

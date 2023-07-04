@@ -6,8 +6,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  i18n,
-  
+  i18n: {
+    locales: ['no', 'en', 'fr', 'es', 'ar', 'zh'],
+    defaultLocale: 'no',
+    },
   swcMinify: false,
   swcLoader: false,
 }

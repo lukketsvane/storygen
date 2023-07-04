@@ -10,7 +10,6 @@ import StoryOutput from "@/components/StoryOutput";
 import ImagineOutput from "@/components/ImagineOutput";
 import { useRouter } from "next/router";
 
-
 export default function Home() {
   const { t, i18n } = useTranslation("common");
   const [description, setDescription] = useState<string | null>("");
@@ -36,7 +35,42 @@ export default function Home() {
   return (
     <>
       <NextSeo title={t("title")} description={t("description")} />
+      
       <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
+      {image ? (
+  <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
+    <Image 
+      src={URL.createObjectURL(image)}
+      alt="uploaded image"
+      objectFit="contain"
+      borderRadius="lg"
+      maxW="100%"
+      maxH="100%"
+    />
+  </Box>
+) : (
+  <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
+    <Link href="https://www.spleis.no/project/324720">
+      <Image 
+        src="/header.png" 
+        alt="header image" 
+        objectFit="cover" 
+        borderRadius="lg"
+        maxW="100%"
+        maxH="100%"
+      />
+    </Link>
+  </Box>
+)}
+
+      <Box w={["30%", "20%"]} m={2} px={20}>
+                <FileUploader
+                  loading={loading}
+                  setImage={setImage}
+                  setImagine={setImagine}
+                  setLoading={setLoading}
+                />
+              </Box>
         <Heading
           alignContent={{
             base: "left",
@@ -50,20 +84,13 @@ export default function Home() {
         >
           {t("title")} 📖
         </Heading>
-        <Box w={["40%", "20%"]} m={2} p={0}>
-          <FileUploader
-            loading={loading}
-            setImage={setImage}
-            setImagine={setImagine}
-            setLoading={setLoading}
-          />
-        </Box>
+        
         <DescriptionInput
           loading={loading}
           setDescription={setDescription}
           setStory={setStory}
           setLoading={setLoading}
-          database={database}
+          firebase={database}
         />
 
         {/* Output component */}
@@ -79,15 +106,8 @@ export default function Home() {
           />
         )}
 
-        <Text color="gray.500" textAlign="center" pb="-12" mx="6" pt="-2">
-          {t("madeBy")}{" "}
-          <Link href="https://www.spleis.no/project/324720" color="teal.500">
-            @lukketsvane
-          </Link>{" "}
-          {t("withLove")}{" "}
-          <Link href="https://www.spleis.no/project/324720" color="teal.500">
-            {t("drBayan")}
-          </Link>
+        <Text color="gray.500" textAlign="center">
+          {t("footer")}
         </Text>
       </VStack>
     </>

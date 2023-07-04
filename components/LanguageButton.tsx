@@ -1,3 +1,4 @@
+// ./components/LanguageButton.tsx
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Button, Image, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
@@ -8,9 +9,7 @@ const LanguageButton = () => {
   const { i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    router.push(router.asPath, router.route, { locale: lng }).then(() => {
-      window.location.reload(); // Reload the page after changing the language
-    });
+    router.push(router.asPath, router.route, { locale: lng });
   };
 
   const languageIcons = {
@@ -24,14 +23,7 @@ const LanguageButton = () => {
 
   return (
     <Menu>
-      <MenuButton
-        as={Button}
-        rightIcon={<ChevronDownIcon />}
-        position="fixed"
-        top={5}
-        right={5}
-        zIndex={20} // Adjust the zIndex value to be higher than HelpOverlay
-      >
+      <MenuButton as={Button} rightIcon={<ChevronDownIcon />} position="fixed" top={5} right={5} zIndex={20}>
         <Image src={languageIcons[i18n.language]} boxSize="24px" />
       </MenuButton>
       <MenuList zIndex={20}>
