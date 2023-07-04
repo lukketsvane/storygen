@@ -20,5 +20,18 @@
   "madeBy": "Made by",
   "withLove": "with love, for the collection of",
   "drBayan": "Dr. Bayan",
-  "examples": ["Frøken Frosk hopper høyere enn noen annen i skogen, og hver gang hun lander, skaper hun en miniatyrregnstorm med plaskene.", "Herr Harepus har ører så lange at de rekker til skyene, og noen ganger må han bøye seg for ikke å henge fast i stjernene.", "Lille Papegøye er så fargerik at en regnbue virker grå i sammenligning, og hver gang hun flyr, etterlater hun en sti av gnistrende farger.", "Sir Skilpadde er så treg at han bruker en hel dag på å krysse veien, men han har alltid tid til å stoppe og hjelpe noen som trenger det.", "Frøken Flamingo har bein så tynne som spaghetti, men hun kan balansere på ett bein lengre enn noen annen i dammen.", "Herr Elefant har en snabel så stor at han kan bruke den som et periskop, og se over trærne selv når han ligger på magen.", "Frøken Panda elsker å klatre så høyt at hun kan kikke rett inn i solnedgangen, og hun lager trærne til sine egne private lekeplasser.", "Sir Pinnsvin er så liten at han kan gjemme seg i et eikenøtteskall, men han har en venn i hver eneste krok av skogen.", "Kaptein Delfin elsker å svømme så raskt at hun skaper bølger store nok til å surfe på, og hun lar alltid havets musikk guide veien hennes."]
+  "examples": ["Frøken Frosk hopper høyere enn noen annen i skogen, og hver gang hun lander, skaper hun en miniatyrregnstorm med plaskene.", "Herr Harepus har ører så lange at de rekker til skyene, og noen ganger må han bøye seg for ikke å henge fast i stjernene.", "Lille Papegøye er så fargerik at en regnbue virker grå i sammenligning, og hver gang hun flyr, etterlater hun en sti av gnistrende farger.", "Sir Skilpadde er så treg at han bruker en hel dag på å krysse veien, men han har alltid tid til å stoppe og hjelpe noen som trenger det.", "Frøken Flamingo har bein så tynne som spaghetti, men hun kan balansere på ett bein lengre enn noen annen i dammen.", "Herr Elefant har en snabel så stor at han kan bruke den som et periskop, og se over trærne selv når han ligger på magen.", "Frøken Panda elsker å klatre så høyt at hun kan kikke rett inn i solnedgangen, og hun lager trærne til sine egne private lekeplasser.", "Sir Pinnsvin er så liten at han kan gjemme seg i et eikenøtteskall, men han har en venn i hver eneste krok av skogen.", "Kaptein Delfin elsker å svømme så raskt at hun skaper bølger store nok til å surfe på, og hun lar alltid havets musikk guide veien hennes."],
+  "storyGenTitle": "StoryGen 📖",
+  "storyGenDescription": "StoryGen allows users to generate personalized, engaging, and creative stories for children.",
+  "howItWorksTitle": "How it works",
+  "step1": "Create unique stories",
+  "step2": "Generate a story",
+  "step3": "Try your luck",
+  "futurePlansTitle": "Future plans",
+  "futurePlansDescription": "The goal is to continue development and implement new features to enhance the user experience. Each month, a new charitable cause is selected to contribute to. Visit the GitHub page for updates and opportunities to contribute to the project.",
+  "supportingCauseTitle": "Supporting a good cause",
+  "supportingCauseDescription": "This month, we're contributing to support Dr. Bayan, as this tool is an attempt to contribute to society through technological innovation. The aim is to inspire both young and old to express their creativity and curiosity.",
+  "supportingCauseText": "Help Syrian Doctor Bayan Practice Her Profession",
+  "generatedCountText": "So far,",
+  "supportDevelopmentText": "stories have been generated. To support the further development of StoryGen, consider making a contribution."
 }

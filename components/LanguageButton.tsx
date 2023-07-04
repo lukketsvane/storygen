@@ -27,7 +27,7 @@ const LanguageButton = () => {
         position="fixed"
         top={5}
         right={5}
-        zIndex={11}
+        zIndex={20} // Adjust the zIndex value to be higher than HelpOverlay
       >
         <Image src={languageIcons[i18n.language]} boxSize="24px" />
       </MenuButton>

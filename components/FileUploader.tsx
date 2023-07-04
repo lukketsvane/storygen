@@ -137,7 +137,7 @@ const FileUploader = ({
               fontWeight="medium"
               pb={0.5}
             >
-              upload a picture of yourself {!isMobile && "to get roasted"}
+              Eller dra inn et bilde {!isMobile && "for å få en inspirert fortelling"}
             </Text>
           )}
         </HStack>
