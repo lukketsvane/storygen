@@ -119,10 +119,11 @@ const DescriptionInput = ({
         </Wrap>
       </VStack>
       <HStack spacing={5} justify="flex-end" position="absolute" top={5} right={0}>
-        <HelpOverlay />
-        <LanguageButton />
       </HStack>
+      <HelpOverlay />
+      <LanguageButton />
     </Box>
+    
   );
 };
 
