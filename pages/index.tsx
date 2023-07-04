@@ -26,15 +26,12 @@ export default function Home() {
     <>
       <NextSeo title={t("title")} description={t("description")} />
       <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
-        <Box w={["40%", "20%"]} m={2} p={0}>
-          <FileUploader
-            loading={loading}
-            setImage={setImage}
-            setRoast={setRoast}
-            setLoading={setLoading}
-          />
-        </Box>
+
         <Heading
+          alignContent={{
+            base: "left",
+            md: "left",
+          }}
           size={{
             base: "xl",
             md: "xl",
@@ -43,7 +40,14 @@ export default function Home() {
         >
           {t("title")} 📖
         </Heading>
-
+        <Box w={["40%", "20%"]} m={2} p={0}>
+          <FileUploader
+            loading={loading}
+            setImage={setImage}
+            setRoast={setRoast}
+            setLoading={setLoading}
+          />
+        </Box>
         <DescriptionInput
           loading={loading}
           setDescription={setDescription}

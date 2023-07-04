@@ -72,7 +72,10 @@ const FileUploader = ({
 
   const isMobile = useBreakpointValue({ base: true, md: false });
   const iconSize = isMobile ? 32 : 32;
-  const imageSize = "80%";
+  const imageSize = "50%";
+  const frameSize = useBreakpointValue({ base: "calc(400px - 32px)", md: "400px" });
+
+
 
   return (
     <Box display="flex" justifyContent="center" width="screen">
@@ -82,7 +85,6 @@ const FileUploader = ({
           accept="image/png, image/jpeg"
           disabled={loading}
           hidden
-          
           onChange={(e) => handleUpload(e)}
         />
 
@@ -99,8 +101,9 @@ const FileUploader = ({
           cursor={loading ? "not-allowed" : "pointer"}
           position="relative"
           overflow="hidden"
-          width="full"
           pb={selectedImage ? 0 : 0.5}
+          width={frameSize}
+          height={frameSize}
         >
           {selectedImage ? (
             <Box
