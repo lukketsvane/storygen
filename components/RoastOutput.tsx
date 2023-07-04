@@ -1,5 +1,8 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text, useToast } from "@chakra-ui/react";
 import LoadingText from "./LoadingText";
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import Image from "next/image";
+import { useState } from "react";
 
 type RoastOutputProps = {
   image: File | null;
@@ -7,9 +10,13 @@ type RoastOutputProps = {
   loading: boolean;
 };
 
-const DefaultRoast = "Please upload a picture to roast.";
+const DefaultRoast = "Please upload a picture to inspire a story.";
 
 const RoastOutput = ({ image, roast, loading }: RoastOutputProps) => {
+  const formatRoast = (roast: string) => {
+    return roast.replace(/(Side \d+:)/g, '<span style="color: black;">$1</span>');
+  };
+
   return (
     <Stack
       w={{
@@ -26,13 +33,9 @@ const RoastOutput = ({ image, roast, loading }: RoastOutputProps) => {
         h="full"
         w={{ base: "full", md: "80rem" }}
       >
-        <Text>
-          {roast && roast}
-
-          {loading && <LoadingText />}
-
-          {!roast && !loading && <>{DefaultRoast}</>}
-        </Text>
+        {roast && <Text style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "500" }} dangerouslySetInnerHTML={{ __html: formatRoast(roast.replace(/\n/g, "<br />")) }} />}
+        {loading && <LoadingText />}
+        {!roast && !loading && <Text style={{ color: "white" }}>{DefaultRoast}</Text>}
       </Box>
     </Stack>
   );

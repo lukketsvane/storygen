@@ -16,7 +16,7 @@ export async function OpenAIStream(message: string, language: string) {
     ar: "استنادًا إلى الوصف المعطى، اكتب نصًا لكتاب أطفال مصور. يجب ألا يتجاوز الكتاب 25 جملة، ويمكن أن يتضمن حوارات وفقاعات كلام. يجب أن تكون القصة غنية بالتفاصيل وديناميكية ومنظمة وفقًا لمبادئ الرواية الجيدة، مثل 'رحلة البطل' لجوزيف كامبل أو هرم فرايتاج، مع مقدمة واضحة، جزء رئيسي ونهاية يمكن أن تكون غير متوقعة، مريرة أو مفتوحة - ليست بالضرورة سعيدة. اتبع النموذج؛ 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تحتوي كل صفحة على وصف للرسم التوضيحي، يتبعه النص. يمكن كتابة الحوار بين الشخصيات داخل النص. يجب أن يكون أسلوب ونغمة القصة متنوعين، مستوحى من مجموعة واسعة من الكتّاب، من تيري براتشيت إلى الأخوين غريم، بحيث تقدم كل قصة شيئًا فريدًا ومثيرًا للاهتمام.",
     fr: "Sur la base de la DESCRIPTION donnée, écrivez un scénario pour un livre d'images pour enfants. Le livre doit compter un maximum de 25 phrases et peut inclure des dialogues et des bulles de parole. L'histoire doit être riche en détails, dynamique et structurée selon les principes de la bonne narration, comme le 'Voyage du héros' de Joseph Campbell ou la Pyramide de Freytag, avec une introduction claire, une partie principale et une fin qui peut être inattendue, douce-amère ou ouverte - pas nécessairement heureuse. Suivez le format ; 'Page {n} : (description de la scène) 'texte''. Chaque page doit contenir une description de l'illustration, suivie du texte. Le dialogue entre les personnages peut être écrit à l'intérieur. Le style et le ton de l'histoire doivent varier, inspirés par un large éventail d'auteurs, de Terry Pratchett aux frères Grimm, de sorte que chaque histoire apporte quelque chose d'unique et intéressant.",
     default: "Based on the given DESCRIPTION, write a script for an illustrated children's book. The book should be a maximum of 25 sentences long and can include dialogues and speech bubbles. The story should be rich in detail, dynamic and structured according to principles of good storytelling, such as Joseph Campbell's 'Hero's Journey' or Freytag's Pyramid, with a clear introduction, main part and an ending that can be unexpected, bittersweet, or open - not necessarily happy. Follow the format; 'Page {n}: (description of the scene) 'text''. Each page should contain an illustration description, followed by the text. Dialogue between characters can be written inside. The style and tone of the story should vary, inspired by a wide range of authors, from Terry Pratchett to the Brothers Grimm, so that each story brings something unique and interesting.",
-  }[language] || "This is a description for a children's book.";
+  }[language] || "Basert på gitt BESKRIVELSE, skriv et manus for en illustrert barnebok. Boken skal være maks 25 setninger lang og kan inneholde replikker og tekstbobler. Historien skal være rik på detaljer, dynamisk og strukturert etter prinsippene for god historiefortelling, som Joseph Campbells 'Heros Journey' eller Freytags Pyramid. med en tydelig innledning, hoveddel og en slutt som kan være uventet, bittersøt eller åpen - ikke nødvendigvis lykkelig.  Følg formatet; 'Side {n}: (beskrivelse av scenen) 'tekst''. Hver side skal inneholde en illustrasjon beskrivelse, etterfulgt av teksten. Dialog mellom karakterer kan skrives inne i. Stilen og tonen på historien skal være variert, inspirert av et bredt spekter av forfattere, fra terry pratchett til brødrene grimm, slik at hver historie bringer noe unikt og interessant.";
 
   const requestHeaders: Record<string, string> = {
     "Content-Type": "application/json",
@@ -31,12 +31,12 @@ export async function OpenAIStream(message: string, language: string) {
     headers: requestHeaders,
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo-16k",
       messages: [
         { role: "system", content: contentMessage },
         { role: "user", content: message },
       ],
-      max_tokens: 2500,
+      max_tokens: 11500,
       stream: true,
     }),
   });

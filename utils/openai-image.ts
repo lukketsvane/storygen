@@ -4,7 +4,7 @@ import {
     ReconnectInterval,
   } from "eventsource-parser";
   
-  export async function OpenAIStream(message: string) {
+  export async function OpenAIStreamImg(message: string) {
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
   
@@ -28,11 +28,11 @@ import {
           {
             role: "system",
             content:
-              "You convert image descriptions of people into funny and brutal roasts",
+              "",
           },
           { role: "user", content: message },
         ],
-        max_tokens: 200,
+        max_tokens: 1500,
         stream: true,
       }),
     });
