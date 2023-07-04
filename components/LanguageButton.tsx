@@ -31,7 +31,9 @@ const LanguageButton = () => {
       >
         <Image src={languageIcons[i18n.language]} boxSize="24px" />
       </MenuButton>
-      <MenuList>
+      <MenuList
+              zIndex={20} // Adjust the zIndex value to be higher than HelpOverlay
+              >
         <MenuItem onClick={() => changeLanguage('en')}>
           <Image src="/en-icon.png" boxSize="20px" mr={2} />
           English

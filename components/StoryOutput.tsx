@@ -1,9 +1,8 @@
 import { Box, Stack, IconButton, useClipboard, useToast } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard, faCheck } from '@fortawesome/free-solid-svg-icons'; // Added this line
+import { faClipboard, faCheck } from '@fortawesome/free-solid-svg-icons';
 import LoadingText from "./LoadingText";
-
 
 type StoryOutputProps = {
   description: string | null;
@@ -52,7 +51,7 @@ const StoryOutput = ({ description, story, loading, cancelGeneration }: StoryOut
   }, [loading]);
 
   const formatStory = (story: string) => {
-    return story.replace(/(Side \d+:)/g, '<b style="color: black;">$1</b>');
+    return story.replace(/(\n\n)(?!<b style="color: black;">Side 6:<\/b>)/g, "<br />").replace(/(Side \d+:)/g, '<b style="color: black;">$1</b>');
   }
 
   const handleCopy = () => {
@@ -66,7 +65,6 @@ const StoryOutput = ({ description, story, loading, cancelGeneration }: StoryOut
       duration: 3000,
       isClosable: true,
       colorScheme: "teal"
-
     })
   }
 
@@ -86,11 +84,11 @@ const StoryOutput = ({ description, story, loading, cancelGeneration }: StoryOut
         h="full"
         w={{ base: "full", md: "80rem" }}
       >
-        {!cancelGeneration && story && <p style={{color: "black", fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "500"}} dangerouslySetInnerHTML={{ __html: formatStory(story.replace(/\n/g, "<br />")) }} />}
+        {!cancelGeneration && story && <p style={{ color: "black", fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "500" }} dangerouslySetInnerHTML={{ __html: formatStory(story.replace(/\n/g, "<br />")) }} />}
         {loading && !cancelGeneration && <LoadingText />}
-        {!story && !loading && <p style={{color: "white"}}>{DefaultStory}</p>}
+        {!story && !loading && <p style={{ color: "white" }}>{DefaultStory}</p>}
         {story && !loading && (
-          <IconButton 
+          <IconButton
             mt={4}
             icon={<FontAwesomeIcon icon={copied ? faCheck : faClipboard} />}
             color={copied ? 'green.400' : 'gray.400'}

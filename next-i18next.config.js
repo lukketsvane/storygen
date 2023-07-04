@@ -1,7 +1,7 @@
 module.exports = {
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'no', 'fr', 'es', 'ar'],
+    defaultLocale: 'no',
+    locales: ['no', 'fr', 'es', 'ar', 'en', ],
   },
   localePath: './public/locales',
   ns: ['common', 'examples'], // include the examples namespace here
