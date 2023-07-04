@@ -11,7 +11,7 @@ export const config = {
 
 const handler = async (req: Request): Promise<Response> => {
   const body = await req.json();
-  const { image } = body;
+  const { image, language } = body; // Add language to the request body
 
   console.log("Starting diffusion");
 
@@ -50,7 +50,7 @@ const handler = async (req: Request): Promise<Response> => {
 
   console.log("Got diffusion: ", output.length);
 
-  const stream = await OpenAIStream(output);
+  const stream = await OpenAIStream(output, language); // Pass the language to the OpenAIStream function
   return new Response(stream);
 };
 

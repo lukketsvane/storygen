@@ -11,15 +11,6 @@ export async function OpenAIStream(message: string, language: string) {
 
   let counter = 0;
 
-  const requestHeaders: Record<string, string> = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.OPENAI_KEY ?? ""}`,
-  };
-
-  if (process.env.OPENAI_ORG) {
-    requestHeaders["OpenAI-Organization"] = process.env.OPENAI_ORG;
-  }
-
   const systemMessageByLanguage = {
     no:
       "du konverterer en bildebeskrivelse til et manus for en illustrert barnebok. Boken skal være maks 25 setninger lang og kan inneholde replikker og tekstbobler. Historien skal være rik på detaljer, dynamisk og strukturert etter prinsippene for god historiefortelling, som Joseph Campbells 'Heros Journey' eller Freytags Pyramid. med en tydelig innledning, hoveddel og en slutt som kan være uventet, bittersøt eller åpen - ikke nødvendigvis lykkelig. Følg formatet: 'Side {n}: (beskrivelse av scenen) 'tekst''. Hver side skal inneholde en illustrasjonsbeskrivelse, etterfulgt av teksten. Dialog mellom karakterer kan skrives inne i. Stilen og tonen på historien skal være variert, inspirert av et bredt spekter av forfattere, fra Terry Pratchett til Brødrene Grimm, slik at hver historie bringer noe unikt og interessant.",
@@ -32,16 +23,25 @@ export async function OpenAIStream(message: string, language: string) {
     fr:
       "Vous convertissez une description d'image en un manuscrit pour un livre illustré pour enfants. Le livre devrait contenir au maximum 25 phrases et peut inclure des dialogues et des bulles de texte. L'histoire devrait être riche en détails, dynamique et structurée selon les principes d'une bonne narration, tels que le 'Voyage du héros' de Joseph Campbell ou la pyramide de Freytag. Elle devrait avoir une introduction claire, un corps principal et une fin qui peut être inattendue, aigre-douce ou ouverte - pas nécessairement heureuse. Suivez le format : 'Page {n} : (description de la scène) 'texte''. Chaque page devrait inclure une description de l'illustration suivie du texte. Les dialogues entre les personnages peuvent être écrits entre guillemets. Le style et le ton de l'histoire devraient être variés, inspirés par un large éventail d'auteurs, de Terry Pratchett aux frères Grimm, de sorte que chaque histoire apporte quelque chose de unique et d'intéressant.",
     ar:
-      "أنت تحوّل وصفًا لصورة إلى مخطوطة لكتاب مصور للأطفال. يجب أن يكون الكتاب يحتوي على ما يصل إلى 25 جملة ويمكن أن يشمل الحوار والفقاعات النصية. يجب أن تكون القصة غنية بالتفاصيل ودينامية ومنظمة وفقًا لمبادئ السرد الجيد، مثل 'رحلة البطل' لجوزيف كامبل أو هرم فريتاج. يجب أن يكون لديها مقدمة واضحة وجزء رئيسي ونهاية يمكن أن تكون غير متوقعة أو مريرة أو مفتوحة - ليس بالضرورة سعيدة. اتبع التنسيق: 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تشتمل كل صفحة على وصف للرسم ثم النص. يمكن كتابة الحوارات بين الشخصيات بين علامتي اقتباس. يجب أن يكون أسلوب ونغمة القصة متنوعين، مستوحاة من مجموعة واسعة من الكتاب، بدءًا من تيري براتشيت إلى الإخوة غريم، بحيث تقدم كل قصة شيئًا فريدًا ومثيرًا.",
+      "أنت تحوّل وصفًا لصورة إلى مخطوطة لكتاب مصور للأطفال. يجب أن يكون الكتاب يحتوي على ما يصل إلى 25 جملة ويمكن أن يشمل الحوار والفقاعات النصية. يجب أن تكون القصة غنية بالتفاصيل ودينامية ومنظمة وفقًا لمبادئ السرد الجيد، مثل 'رحلة البطل' لجوزيف كامبل أو هرم فريتاج. يجب أن يكون لديها مقدمة واضحة وجزء رئيسي ونهاية يمكن أن تكون غير متوقعة أو مريرة أو مفتوحة - ليست بالضرورة سعيدة. اتبع التنسيق: 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تشتمل كل صفحة على وصف للرسم ثم النص. يمكن كتابة الحوارات بين الشخصيات بين علامتي اقتباس. يجب أن يكون أسلوب ونغمة القصة متنوعين، مستوحاة من مجموعة واسعة من الكتاب، بدءًا من تيري براتشيت إلى الإخوة غريم، بحيث تقدم كل قصة شيئًا فريدًا ومثيرًا.",
   };
 
   const systemMessage = systemMessageByLanguage[language] || systemMessageByLanguage["en"];
+
+  const requestHeaders: Record<string, string> = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.OPENAI_KEY ?? ""}`,
+  };
+
+  if (process.env.OPENAI_ORG) {
+    requestHeaders["OpenAI-Organization"] = process.env.OPENAI_ORG;
+  }
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     headers: requestHeaders,
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo-16k",
       messages: [
         {
           role: "system",

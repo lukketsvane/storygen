@@ -72,7 +72,7 @@ const FileUploader = ({
 
   const isMobile = useBreakpointValue({ base: true, md: false });
   const iconSize = isMobile ? 32 : 32;
-  const imageSize = "50%";
+  const imageSize = "80%";
   const frameSize = useBreakpointValue({ base: "calc(400px - 32px)", md: "400px" });
 
 
