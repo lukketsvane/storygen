@@ -34,8 +34,9 @@ const HelpOverlay = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const [currentPage, setCurrentPage] = React.useState("main");
 
-  const handleSalesTermsClick = () => {
-    onToggle();
+  const handleSalesTermsClick = (event) => {
+    event.stopPropagation();
+    setCurrentPage("page1");
   };
 
   const handleArrowLeftClick = () => {
@@ -61,6 +62,23 @@ const HelpOverlay = () => {
       }
     });
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      handleArrowLeftClick();
+    } else if (event.key === "ArrowRight") {
+      handleArrowRightClick();
+    } else if (event.key === "Escape") {
+      onClose();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const renderPageContent = () => {
     switch (currentPage) {
@@ -111,7 +129,11 @@ const HelpOverlay = () => {
               </Link>
               <Text>{t("orgNumberText")}</Text>
               <Text>{t("emailText")}</Text>
-              <Button variant="link" onClick={handleSalesTermsClick}>
+              <Button
+                variant="link"
+                onClick={handleSalesTermsClick}
+                onMouseDown={(e) => e.stopPropagation()}
+              >
                 {t("salesTermsText")}
               </Button>
             </HStack>
@@ -190,6 +212,7 @@ const HelpOverlay = () => {
           p={2}
           overflowX="hidden"
           overflowY="auto"
+          onKeyDown={handleKeyDown}
         >
           <Box
             bg="white"
