@@ -1,15 +1,27 @@
-import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio, useBreakpointValue, UnorderedList, ListItem, HStack, Divider } from "@chakra-ui/react";
+import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio, useBreakpointValue, UnorderedList, ListItem, HStack, Divider, Tooltip } from "@chakra-ui/react";
 import { QuestionIcon, CloseIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import { useTranslation } from "next-i18next";
 import Counter from "./shared/Counter";
+import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const HelpOverlay = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const { t } = useTranslation("common");
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const router = useRouter();
 
   const handleSalesTermsClick = () => {
     onToggle();
+  };
+
+  const handleArrowLeftClick = () => {
+    const { asPath, query } = router;
+    const currentPathArray = asPath.split("/");
+    currentPathArray.pop();
+    const previousPath = currentPathArray.join("/");
+    router.push({ pathname: previousPath, query });
   };
 
   return (
@@ -54,22 +66,41 @@ const HelpOverlay = () => {
             w={isMobile ? "100vw" : "60%"}
             mx={isMobile ? 0 : "auto"}
           >
-    
-            <Heading size="xl" mt={6} mb={4}>{t("storyGenTitle")}</Heading>
+            <Flex align="center">
+              {router.pathname !== "/docs" && (
+                <Tooltip label={t("back")} hasArrow>
+                  <IconButton
+                    icon={<ArrowLeftIcon />}
+                    aria-label={t("back")}
+                    onClick={handleArrowLeftClick}
+                    mr={2}
+                  />
+                </Tooltip>
+              )}
+              <Heading size="xl" mt={6} mb={4}>
+                {t("storyGenTitle")}
+              </Heading>
+            </Flex>
 
             <Text>{t("storyGenDescription")}</Text>
 
-            <Heading size="lg" mt={6} mb={2}>{t("howItWorksTitle")}</Heading>
+            <Heading size="lg" mt={6} mb={2}>
+              {t("howItWorksTitle")}
+            </Heading>
             <UnorderedList pl={4} mb={4}>
               <ListItem>{t("step1")}</ListItem>
               <ListItem>{t("step2")}</ListItem>
               <ListItem>{t("step3")}</ListItem>
             </UnorderedList>
 
-            <Heading size="lg" mt={6} mb={2}>{t("futurePlansTitle")}</Heading>
+            <Heading size="lg" mt={6} mb={2}>
+              {t("futurePlansTitle")}
+            </Heading>
             <Text>{t("futurePlansDescription")}</Text>
 
-            <Heading size="lg" mt={6} mb={2}>{t("supportingCauseTitle")}</Heading>
+            <Heading size="lg" mt={6} mb={2}>
+              {t("supportingCauseTitle")}
+            </Heading>
             <Text>{t("supportingCauseDescription")}</Text>
 
             <Box w="full" boxShadow="" rounded="md" overflow="hidden" mt={4}>
