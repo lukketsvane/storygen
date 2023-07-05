@@ -37,7 +37,7 @@ const Home = () => {
     <>
       <NextSeo title={t("title")} description={t("description")} />
 
-      <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
+      <VStack h="100vh" pt={{ base: 0, md: 32 }} spacing={6}>
         {image ? (
           <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
             <Image
@@ -46,11 +46,11 @@ const Home = () => {
               objectFit="contain"
               borderRadius="lg"
               maxW="100%"
-              maxH="100%"
+              maxH="60%"
             />
           </Box>
         ) : (
-          <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
+          <Box w="300px" h="300px" m={2} pt={16} display="flex" alignItems="center" justifyContent="center">
             <Link href="https://www.spleis.no/project/324720">
               <Image
                 src="/header.png"
@@ -58,7 +58,7 @@ const Home = () => {
                 objectFit="cover"
                 borderRadius="lg"
                 maxW="100%"
-                maxH="100%"
+                maxH="60%"
               />
             </Link>
             
@@ -75,6 +75,7 @@ const Home = () => {
             base: "xl",
             md: "xl",
           }}
+          pt= "2"
           color="black"
         >
           {t("title")} 📖

@@ -199,11 +199,11 @@ const HelpOverlay = () => {
           <Box
             bg="white"
             borderRadius="md"
-            mt="8vh"
+            mt={isMobile ? "8vh" : "2"}
         
             p={8}
             overflowY="auto"
-            maxH="76vh"
+            maxH={isMobile ? "76vh" : "96vh"}
             w={isMobile ? "96vw" : "60%"}
             mx={isMobile ? 0 : "auto"}
           >
