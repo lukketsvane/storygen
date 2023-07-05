@@ -61,17 +61,11 @@ const Home = () => {
                 maxH="100%"
               />
             </Link>
+            
           </Box>
+          
         )}
 
-        <Box w={["30%", "20%"]} m={2} px={20}>
-          <FileUploader
-            loading={loading}
-            setImage={setImage}
-            setImagine={setImagine}
-            setLoading={setLoading}
-          />
-        </Box>
         <Heading
           alignContent={{
             base: "left",
@@ -85,13 +79,21 @@ const Home = () => {
         >
           {t("title")} 📖
         </Heading>
+<FileUploader
+            loading={loading}
+            setImage={setImage}
+            setImagine={setImagine}
+            setLoading={setLoading}
+          />
 
+          
         <DescriptionInput
           loading={loading}
           setDescription={setDescription}
           setStory={setStory}
           setLoading={setLoading}
           database={database}
+          
         />
 
         {/* Output component */}

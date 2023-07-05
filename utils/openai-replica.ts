@@ -21,7 +21,9 @@ export async function OpenAIStreamReplica(message: string, locale: string) {
     es: "Has recibido una descripción en inglés. Traduce esta descripción al español y utilízala como base para escribir un guion para un libro infantil ilustrado en español. El libro debe tener un máximo de 25 frases y puede contener diálogos y globos de texto. Tu historia debe ser rica en detalles, dinámica y seguir los principios de una buena narración. Sigue el formato: 'Página {n}: (descripción de la escena) 'texto''. Cada página debe contener una descripción de la ilustración seguida del texto.",
     zh: "你收到了一份英文描述。将此描述翻译成中文，并以此为基础，编写一本图画儿童书的剧本。书的长度最多为25个句子，可以包含对话和对白气泡。你的故事应该细节丰富，动态生动，并遵循良好的叙事原则。遵循以下格式：'第{n}页：(场景描述)'文本''。每页都应该包含一个插图的描述，然后是文本。",
     fr: "Vous avez reçu une description en anglais. Traduisez cette description en français et utilisez-la comme base pour écrire un scénario pour un livre illustré pour enfants en français. Le livre doit comporter un maximum de 25 phrases et peut contenir des dialogues et des bulles de parole. Votre histoire doit être riche en détails, dynamique et suivre les principes de la bonne narration. Suivez le format : 'Page {n} : (description de la scène) 'texte''. Chaque page doit contenir une description de l'illustration suivie du texte.",
-    ar: "لقد تلقيت وصفًا باللغة الإنجليزية. قم بترجمة هذا الوصف إلى العربية واستخدمه كأساس لكتابة نص لكتاب مصور للأطفال باللغة العربية. يجب أن يكون الكتاب مكونًا من 25 جملة كحد أقصى ويمكن أن يحتوي على حوار وفقاعات الكلام. يجب أن تكون قصتك غنية بالتفاصيل وديناميكية وتتبع مبادئ الرواية الجيدة. اتبع التنسيق: 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تحتوي كل صفحة على وصف للرسم التوضيحي يليه النص."
+    ar: "لقد تلقيت وصفًا باللغة الإنجليزية. قم بترجمة هذا الوصف إلى العربية واستخدمه كأساس لكتابة نص لكتاب مصور للأطفال باللغة العربية. يجب أن يكون الكتاب مكونًا من 25 جملة كحد أقصى ويمكن أن يحتوي على حوار وفقاعات الكلام. يجب أن تكون قصتك غنية بالتفاصيل وديناميكية وتتبع مبادئ الرواية الجيدة. اتبع التنسيق: 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تحتوي كل صفحة على وصف للرسم التوضيحي يليه النص.",
+    uk: "Ви отримали опис англійською мовою. Використовуйте цей опис як основу для написання сценарію для ілюстрованої дитячої книжки англійською мовою. Книга має містити максимум 25 речень і містити діалоги та виноски. Ваша історія має бути насиченим деталями, динамічним і відповідати принципам гарного оповідання. Дотримуйтесь формату: 'Сторінка {n}: (опис сцени) 'текст'. Кожна сторінка має містити опис ілюстрації, за якою йде текст.",
+    sw: "Umepokea maelezo kwa Kiingereza. Tumia maelezo haya kama msingi wa kuandika hati ya kitabu cha watoto kilichoonyeshwa katika Kiingereza. Kitabu kinapaswa kuwa na urefu wa sentensi 25 na kinaweza kuwa na viputo vya mazungumzo na usemi. Hadithi yako inapaswa kuwa tajiri wa kina, mahiri, na kufuata kanuni za usimulizi mzuri wa hadithi. Fuata umbizo: 'Ukurasa {n}: (maelezo ya eneo) 'maandishi''. Kila ukurasa unapaswa kuwa na maelezo ya kielelezo kinachofuatwa na maandishi.",
   };
 
   const descriptionMessage = descriptionMessages[locale] || descriptionMessages['en']; 
@@ -30,12 +32,12 @@ export async function OpenAIStreamReplica(message: string, locale: string) {
     headers: requestHeaders,
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo-16k",
+      model: "gpt-4",
       messages: [
         { role: "system", content: descriptionMessage },
         { role: "user", content: message },
       ],
-      max_tokens: 10000,
+      max_tokens: 3500,
       stream: true,
     }),
   });

@@ -23,6 +23,8 @@ export async function OpenAIStream(message: string, locale: string) {
     ar: "استنادًا إلى الوصف المعطى، اكتب نصًا لكتاب أطفال مصور. يجب ألا يتجاوز الكتاب 25 جملة، ويمكن أن يتضمن حوارات وفقاعات كلام. يجب أن تكون القصة غنية بالتفاصيل وديناميكية ومنظمة وفقًا لمبادئ الرواية الجيدة، مثل 'رحلة البطل' لجوزيف كامبل أو هرم فرايتاج، مع مقدمة واضحة، جزء رئيسي ونهاية يمكن أن تكون غير متوقعة، مريرة أو مفتوحة - ليست بالضرورة سعيدة. اتبع النموذج؛ 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تحتوي كل صفحة على وصف للرسم التوضيحي، يتبعه النص. يمكن كتابة الحوار بين الشخصيات داخل النص. يجب أن يكون أسلوب ونغمة القصة متنوعين، مستوحى من مجموعة واسعة من الكتّاب، من تيري براتشيت إلى الأخوين غريم، بحيث تقدم كل قصة شيئًا فريدًا ومثيرًا للاهتمام.",
     es: "Basado en la DESCRIPCIÓN dada, escribe un guion para un libro infantil ilustrado. El libro debe tener un máximo de 25 frases y puede incluir diálogos y globos de texto. La historia debe ser rica en detalles, dinámica y estructurada según los principios de una buena narrativa, como 'El viaje del héroe' de Joseph Campbell o la Pirámide de Freytag, con una introducción clara, una parte principal y un final que puede ser inesperado, agridulce o abierto, no necesariamente feliz. Sigue el formato; 'Página {n}: (descripción de la escena) 'texto''. Cada página debe contener una descripción de la ilustración, seguida del texto. El diálogo entre personajes puede ser escrito en el interior. El estilo y el tono de la historia deben ser variados, inspirados por una amplia gama de autores, desde Terry Pratchett hasta los hermanos Grimm, de modo que cada historia aporte algo único e interesante.",
     zh: "根据给定的描述，为一本插图儿童书写剧本。这本书最多有25句话，可以包括对话和气泡。故事应该丰富多彩，富有活力，结构良好，符合良好叙事的原则，比如约瑟夫·坎贝尔的“英雄之旅”或弗雷塔格的金字塔，有一个清晰的介绍，主要部分和一个结论，这个结论可能是意想不到的，苦乐参半的，或者是开放式的 - 不一定是快乐的。遵循格式：'第{n}页：（场景描述）'文本'。每一页都应该包括一个插图描述，然后是文本。人物之间的对话可以写在里面。故事的风格和语气应该是多样的，灵感来自于广泛的作者，从特里·普拉切特到格林兄弟，这样每个故事都能带来独特而有趣的东西.",
+    sw: "Kulingana na MAELEZO uliyopewa, andika hati ya kitabu cha watoto kilichoonyeshwa. Kitabu kinapaswa kuwa na urefu wa sentensi 25 na kinaweza kujumuisha mapovu ya mazungumzo na usemi. Hadithi inapaswa kuwa na maelezo mengi, yenye nguvu, na muundo kulingana na kanuni za usimulizi mzuri wa hadithi, kama vile 'Safari ya shujaa' ya Joseph Campbell au Piramidi ya Freytag, yenye utangulizi wa wazi, sehemu kuu, na hitimisho ambalo linaweza kuwa lisilotarajiwa, tamu au la wazi - sio la kufurahisha. Fuata umbizo: 'Ukurasa {n }: (maelezo ya tukio)' maandishi'. Kila ukurasa unapaswa kujumuisha maelezo ya kielelezo, ikifuatiwa na maandishi. Mazungumzo kati ya wahusika yanaweza kuandikwa ndani. Mtindo na sauti ya hadithi inapaswa kutofautishwa, ikiongozwa na anuwai ya waandishi, kutoka kwa Terry Pratchett hadi kwa Ndugu Grimm, ili kila hadithi ilete kitu cha kipekee na cha kuvutia.",
+    uk: "«На основі поданого ОПИСу напишіть сценарій для ілюстрованої дитячої книжки. Книжка має містити не більше 25 речень і може включати діалоги та вислови. Історія має бути багатою на деталі, динамічною та структурованою відповідно до принципів хороше оповідання, як-от «Подорож героя» Джозефа Кемпбелла чи «Піраміда Фрейтага», з чітким вступом, основною частиною та висновком, який може бути несподіваним, гірко-солодким або відкритим — не обов’язково щасливим. Дотримуйтесь формату: «Сторінка {n }: (опис сцени) 'текст'. Кожна сторінка має містити опис ілюстрації, а потім текст. Діалог між героями може бути написаний усередині. Стиль і тон історії мають бути різноманітними, натхненними широким спектром авторів, від Террі Пратчетта до братів Грімм, щоб кожна історія приносила щось унікальне та цікаве.",
   };
 
   const contentMessage = contentMessages[locale] || contentMessages['en']; 
@@ -31,12 +33,12 @@ export async function OpenAIStream(message: string, locale: string) {
     headers: requestHeaders,
     method: "POST",
     body: JSON.stringify({
-      model: "gpt-3.5-turbo-16k",
+      model: "gpt-4",
       messages: [
         { role: "system", content: contentMessage },
         { role: "user", content: message },
       ],
-      max_tokens: 10500,
+      max_tokens: 3500,
       stream: true,
     }),
   });

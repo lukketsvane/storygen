@@ -27,6 +27,7 @@ import { useTranslation } from "next-i18next";
 import Counter from "./shared/Counter";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
+import FileUploader from "./FileUploader";
 
 const HelpOverlay = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();

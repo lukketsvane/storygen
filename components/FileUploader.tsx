@@ -76,7 +76,7 @@ const FileUploader = ({
   const isMobile = useBreakpointValue({ base: true, md: false });
   const iconSize = isMobile ? 32 : 32;
   const imageSize = "100%";
-  const frameSize = useBreakpointValue({ base: "calc(400px - 32px)", md: "400px" });
+  const frameSize = useBreakpointValue({ base: "calc(screen - 110px)", md: "400px" });
 
 
 
@@ -103,7 +103,7 @@ const FileUploader = ({
           cursor={loading ? "not-allowed" : "pointer"}
           position="relative"
           overflow="hidden"
-          width={frameSize}
+          max-width="70%"
           height="fit-content"
         >
           <HStack spacing="4">

@@ -6,7 +6,7 @@ module.exports = {
     ignoreBuildErrors: true,
   },
   i18n: {
-    locales: ['no', 'en', 'fr', 'es', 'ar', 'zh', 'uk', 'sw'],
+    locales: ['no', 'en', 'fr', 'es', 'ar', 'zh', 'uk', 'sw',],
     defaultLocale: 'no',
   },
   swcMinify: false,
