@@ -126,7 +126,7 @@ const DescriptionInput = ({
       </HStack>
       <HelpOverlay />
       <LanguageButton />
-      </Box>
+    </Box>
     
   );
 };
