@@ -33,5 +33,10 @@
   "supportingCauseDescription": "本月，我们的贡献支持 Dr. Bayan，因为这个工具是通过技术创新为社会做贡献的尝试。目标是激发年轻人和年长者表达他们的创造力和好奇心。",
   "supportingCauseText": "帮助叙利亚医生 Bayan 行医",
   "generatedCountText": "到目前为止，已生成了",
-  "supportDevelopmentText": "个故事。为了支持 StoryGen 的进一步开发，请考虑做出贡献。"
+  "supportDevelopmentText": "个故事。为了支持 StoryGen 的进一步开发，请考虑做出贡献。",
+  "dragImageText": "上传一张您自己或您所爱的人的照片",
+  "footerText": "由{link1}制作，以爱心支持{link2}",
+  "salesTermsText": "Salgsbetingelser"
+
+
 }

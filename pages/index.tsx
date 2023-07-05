@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { Heading, VStack, Image, Link, Text, Box } from "@chakra-ui/react";
+import { Heading, VStack, Image, Text, Box } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import DescriptionInput from "@/components/DescriptionInput";
 import { database } from "@/firebase";
-import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import FileUploader from "@/components/FileUploader";
 import StoryOutput from "@/components/StoryOutput";
 import ImagineOutput from "@/components/ImagineOutput";
 import { useRouter } from "next/router";
+import { Link } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 
-export default function Home() {
+const Home = () => {
   const { t, i18n } = useTranslation("common");
   const [description, setDescription] = useState<string | null>("");
   const [story, setStory] = useState<string | null>("");
@@ -35,42 +36,42 @@ export default function Home() {
   return (
     <>
       <NextSeo title={t("title")} description={t("description")} />
-      
-      <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
-      {image ? (
-  <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
-    <Image 
-      src={URL.createObjectURL(image)}
-      alt="uploaded image"
-      objectFit="contain"
-      borderRadius="lg"
-      maxW="100%"
-      maxH="100%"
-    />
-  </Box>
-) : (
-  <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
-    <Link href="https://www.spleis.no/project/324720">
-      <Image 
-        src="/header.png" 
-        alt="header image" 
-        objectFit="cover" 
-        borderRadius="lg"
-        maxW="100%"
-        maxH="100%"
-      />
-    </Link>
-  </Box>
-)}
 
-      <Box w={["30%", "20%"]} m={2} px={20}>
-                <FileUploader
-                  loading={loading}
-                  setImage={setImage}
-                  setImagine={setImagine}
-                  setLoading={setLoading}
-                />
-              </Box>
+      <VStack h="100vh" pt={{ base: 8, md: 32 }} spacing={6}>
+        {image ? (
+          <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
+            <Image
+              src={URL.createObjectURL(image)}
+              alt="uploaded image"
+              objectFit="contain"
+              borderRadius="lg"
+              maxW="100%"
+              maxH="100%"
+            />
+          </Box>
+        ) : (
+          <Box w="300px" h="300px" m={2} p={0} display="flex" alignItems="center" justifyContent="center">
+            <Link href="https://www.spleis.no/project/324720">
+              <Image
+                src="/header.png"
+                alt="header image"
+                objectFit="cover"
+                borderRadius="lg"
+                maxW="100%"
+                maxH="100%"
+              />
+            </Link>
+          </Box>
+        )}
+
+        <Box w={["30%", "20%"]} m={2} px={20}>
+          <FileUploader
+            loading={loading}
+            setImage={setImage}
+            setImagine={setImagine}
+            setLoading={setLoading}
+          />
+        </Box>
         <Heading
           alignContent={{
             base: "left",
@@ -84,13 +85,13 @@ export default function Home() {
         >
           {t("title")} 📖
         </Heading>
-        
+
         <DescriptionInput
           loading={loading}
           setDescription={setDescription}
           setStory={setStory}
           setLoading={setLoading}
-          firebase={database}
+          database={database}
         />
 
         {/* Output component */}
@@ -105,14 +106,20 @@ export default function Home() {
             cancelGeneration={cancelGeneration}
           />
         )}
-
         <Text color="gray.500" textAlign="center">
-          {t("footer")}
+          {t("footerText", {
+            link1: (
+              <Link href="https://github.com/lukketsvane" color="teal.500">
+                @lukketsvane
+              </Link>
+            ),
+            link2: "Dr. Bayan",
+          })}
         </Text>
       </VStack>
     </>
   );
-}
+};
 
 export async function getStaticProps({ locale }) {
   return {
@@ -121,3 +128,5 @@ export async function getStaticProps({ locale }) {
     },
   };
 }
+
+export default Home;

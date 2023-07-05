@@ -5,6 +5,7 @@ import LanguageButton from "./LanguageButton";
 import incrementStoryCount from "./shared/incrementStoryCount";
 import { useTranslation } from "next-i18next";
 import { useRouter } from 'next/router';
+import TermsOverlay from "./TermsOverlay";
 
 
 type DescriptionInputProps = {
@@ -125,7 +126,7 @@ const DescriptionInput = ({
       </HStack>
       <HelpOverlay />
       <LanguageButton />
-    </Box>
+[]    </Box>
     
   );
 };

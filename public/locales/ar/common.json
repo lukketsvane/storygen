@@ -34,5 +34,8 @@
   "supportingCauseText": "ساعد الدكتورة السورية بيان في ممارسة مهنتها",
   "generatedCountText": "حتى الآن، تم إنشاء",
   "supportDevelopmentText": "قصة. لدعم التطوير المستقبلي لـ StoryGen، افكر في المساهمة.",
-  "dragImageText": "قم بسحب الصورة إلى القصة"
+  "dragImageText": "قم بسحب الصورة إلى القصة",
+  "footerText": "تم إنشاؤه بواسطة {link1} بمحبة، لدعم {link2}",
+  "salesTermsText": "Salgsbetingelser"
+
 }

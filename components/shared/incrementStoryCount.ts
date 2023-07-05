@@ -1,3 +1,4 @@
+
 import { getDatabase, ref, get, set } from "firebase/database";
 
 const incrementStoryCount = async () => {

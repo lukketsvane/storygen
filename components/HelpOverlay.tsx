@@ -1,12 +1,16 @@
-import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio, useBreakpointValue, UnorderedList, ListItem } from "@chakra-ui/react";
-import { QuestionIcon, CloseIcon } from "@chakra-ui/icons";
+import { Box, Button, Flex, IconButton, useDisclosure, Heading, Text, Image, Link, AspectRatio, useBreakpointValue, UnorderedList, ListItem, HStack, Divider } from "@chakra-ui/react";
+import { QuestionIcon, CloseIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import { useTranslation } from "next-i18next";
 import Counter from "./shared/Counter";
 
 const HelpOverlay = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
   const { t } = useTranslation("common");
   const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const handleSalesTermsClick = () => {
+    onToggle();
+  };
 
   return (
     <>
@@ -50,6 +54,7 @@ const HelpOverlay = () => {
             w={isMobile ? "100vw" : "60%"}
             mx={isMobile ? 0 : "auto"}
           >
+    
             <Heading size="xl" mt={6} mb={4}>{t("storyGenTitle")}</Heading>
 
             <Text>{t("storyGenDescription")}</Text>
@@ -85,32 +90,17 @@ const HelpOverlay = () => {
             <Text mt={4} mb={2}>
               {t("generatedCountText")} <Counter /> {t("supportDevelopmentText")}
             </Text>
-
-            <Button
-              as="a"
-              href="#"
-              mt={4}
-              px={-4}
-              background="none"
-              border="none"
-              _hover={{ background: "none" }}
-            >
-              <Image
-                src="/vipps.png"
-                alt="Vipps"
-                width={140}
-                objectFit="contain"
-                mr={4}
-              />
-              <Link href="https://github.com/lukketsvane/storygen" isExternal>
-                <Image
-                  src="/github.png"
-                  alt="Github"
-                  width={140}
-                  objectFit="contain"
-                />
+            <Divider />
+            <HStack spacing={12} pt={6} pb={6} justifyContent="center">
+              <Link href="https://github.com/lukketsvane" isExternal>
+                {t("githubLinkText")}
               </Link>
-            </Button>
+              <Text>{t("orgNumberText")}</Text>
+              <Text>{t("emailText")}</Text>
+              <Button variant="link" onClick={handleSalesTermsClick}>
+                {t("salesTermsText")}
+              </Button>
+            </HStack>
           </Box>
         </Box>
       )}

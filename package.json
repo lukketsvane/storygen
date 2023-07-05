@@ -47,9 +47,16 @@
     "react-icons": "^4.8.0",
     "react-markdown": "^8.0.7",
     "react-syntax-highlighter": "^15.5.0",
+    "remark": "^14.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-html": "^15.0.2",
+    "remark-slug": "^7.0.1",
     "swr": "^2.1.5",
     "tnl-midjourney-api": "^1.0.3",
     "typescript": "5.0.4",
     "unfetch": "^5.0.0"
+  },
+  "devDependencies": {
+    "raw-loader": "^4.0.2"
   }
 }

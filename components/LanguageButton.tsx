@@ -19,12 +19,14 @@ const LanguageButton = () => {
     ar: "/ar-icon.png",
     es: "/es-icon.png",
     zh: "/zh-icon.png",
+    uk: "/uk-icon.png",
+    sw: "/sw-icon.png",
   };
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<ChevronDownIcon />} position="fixed" top={5} right={5} zIndex={20}>
-        <Image src={languageIcons[i18n.language]} boxSize="24px" />
+      <MenuButton  position="fixed" top={5} right={5} zIndex={20}>
+        <Image src={languageIcons[i18n.language]} boxSize="40px" />
       </MenuButton>
       <MenuList zIndex={20}>
         <MenuItem onClick={() => changeLanguage('no')}>
@@ -46,6 +48,14 @@ const LanguageButton = () => {
         <MenuItem onClick={() => changeLanguage('es')}>
           <Image src="/es-icon.png" boxSize="20px" mr={2} />
           Español
+        </MenuItem>
+        <MenuItem onClick={() => changeLanguage('uk')}>
+          <Image src="/uk-icon.png" boxSize="20px" mr={2} />
+          Українська
+        </MenuItem>
+        <MenuItem onClick={() => changeLanguage('sw')}>
+          <Image src="/sw-icon.png" boxSize="20px" mr={2} />
+          Kiswahili
         </MenuItem>
         <MenuItem onClick={() => changeLanguage('zh')}>
           <Image src="/zh-icon.png" boxSize="20px" mr={2} />

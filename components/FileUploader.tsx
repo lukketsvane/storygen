@@ -81,7 +81,7 @@ const FileUploader = ({
 
 
   return (
-    <Box display="flex" justifyContent="center" width="screen" x="20">
+    <Box display="flex" justifyContent="center" width="screen" >
       <label>
         <input
           type="file"

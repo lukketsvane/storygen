@@ -33,5 +33,9 @@
   "supportingCauseDescription": "Ce mois-ci, nous contribuons à soutenir le Dr Bayan, car cet outil est une tentative de contribution à la société par le biais de l'innovation technologique. L'objectif est d'inspirer les jeunes et les moins jeunes à exprimer leur créativité et leur curiosité.",
   "supportingCauseText": "Aidez le docteur syrien Bayan à exercer sa profession",
   "generatedCountText": "Jusqu'à présent,",
-  "supportDevelopmentText": "des histoires ont été générées. Pour soutenir le développement continu de StoryGen, envisagez de faire un don."
+  "supportDevelopmentText": "des histoires ont été générées. Pour soutenir le développement continu de StoryGen, envisagez de faire un don.",
+  "dragImageText": "Téléchargez une photo de vous-même ou d'un être cher",
+  "footerText": "créé par {link1} avec amour, en soutien à {link2}",
+  "salesTermsText": "Salgsbetingelser"
+
 }

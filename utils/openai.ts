@@ -22,7 +22,7 @@ export async function OpenAIStream(message: string, locale: string) {
     fr: "Sur la base de la DESCRIPTION donnée, écrivez un scénario pour un livre d'images pour enfants. Le livre doit compter un maximum de 25 phrases et peut inclure des dialogues et des bulles de parole. L'histoire doit être riche en détails, dynamique et structurée selon les principes de la bonne narration, comme le 'Voyage du héros' de Joseph Campbell ou la Pyramide de Freytag, avec une introduction claire, une partie principale et une fin qui peut être inattendue, douce-amère ou ouverte - pas nécessairement heureuse. Suivez le format ; 'Page {n} : (description de la scène) 'texte''. Chaque page doit contenir une description de l'illustration, suivie du texte. Le dialogue entre les personnages peut être écrit à l'intérieur. Le style et le ton de l'histoire doivent varier, inspirés par un large éventail d'auteurs, de Terry Pratchett aux frères Grimm, de sorte que chaque histoire apporte quelque chose d'unique et intéressant.",
     ar: "استنادًا إلى الوصف المعطى، اكتب نصًا لكتاب أطفال مصور. يجب ألا يتجاوز الكتاب 25 جملة، ويمكن أن يتضمن حوارات وفقاعات كلام. يجب أن تكون القصة غنية بالتفاصيل وديناميكية ومنظمة وفقًا لمبادئ الرواية الجيدة، مثل 'رحلة البطل' لجوزيف كامبل أو هرم فرايتاج، مع مقدمة واضحة، جزء رئيسي ونهاية يمكن أن تكون غير متوقعة، مريرة أو مفتوحة - ليست بالضرورة سعيدة. اتبع النموذج؛ 'الصفحة {n}: (وصف المشهد) 'النص''. يجب أن تحتوي كل صفحة على وصف للرسم التوضيحي، يتبعه النص. يمكن كتابة الحوار بين الشخصيات داخل النص. يجب أن يكون أسلوب ونغمة القصة متنوعين، مستوحى من مجموعة واسعة من الكتّاب، من تيري براتشيت إلى الأخوين غريم، بحيث تقدم كل قصة شيئًا فريدًا ومثيرًا للاهتمام.",
     es: "Basado en la DESCRIPCIÓN dada, escribe un guion para un libro infantil ilustrado. El libro debe tener un máximo de 25 frases y puede incluir diálogos y globos de texto. La historia debe ser rica en detalles, dinámica y estructurada según los principios de una buena narrativa, como 'El viaje del héroe' de Joseph Campbell o la Pirámide de Freytag, con una introducción clara, una parte principal y un final que puede ser inesperado, agridulce o abierto, no necesariamente feliz. Sigue el formato; 'Página {n}: (descripción de la escena) 'texto''. Cada página debe contener una descripción de la ilustración, seguida del texto. El diálogo entre personajes puede ser escrito en el interior. El estilo y el tono de la historia deben ser variados, inspirados por una amplia gama de autores, desde Terry Pratchett hasta los hermanos Grimm, de modo que cada historia aporte algo único e interesante.",
-    zh: "根据给定的描述，为一本插图儿童书写剧本。这本书最多有25句话，可以包括对话和气泡。故事应该丰富多彩，富有活力，结构良好，符合良好叙事的原则，比如约瑟夫·坎贝尔的“英雄之旅”或弗雷塔格的金字塔，有一个清晰的介绍，主要部分和一个结论，这个结论可能是意想不到的，苦乐参半的，或者是开放式的 - 不一定是快乐的。遵循格式：'第{n}页：（场景描述）'文本'。每一页都应该包括一个插图描述，然后是文本。人物之间的对话可以写在里面。故事的风格和语气应该是多样的，灵感来自于广泛的作者，从特里·普拉切特到格林兄弟，这样每个故事都能带来独特而有趣的东西。"
+    zh: "根据给定的描述，为一本插图儿童书写剧本。这本书最多有25句话，可以包括对话和气泡。故事应该丰富多彩，富有活力，结构良好，符合良好叙事的原则，比如约瑟夫·坎贝尔的“英雄之旅”或弗雷塔格的金字塔，有一个清晰的介绍，主要部分和一个结论，这个结论可能是意想不到的，苦乐参半的，或者是开放式的 - 不一定是快乐的。遵循格式：'第{n}页：（场景描述）'文本'。每一页都应该包括一个插图描述，然后是文本。人物之间的对话可以写在里面。故事的风格和语气应该是多样的，灵感来自于广泛的作者，从特里·普拉切特到格林兄弟，这样每个故事都能带来独特而有趣的东西.",
   };
 
   const contentMessage = contentMessages[locale] || contentMessages['en']; 
@@ -36,7 +36,7 @@ export async function OpenAIStream(message: string, locale: string) {
         { role: "system", content: contentMessage },
         { role: "user", content: message },
       ],
-      max_tokens: 7500,
+      max_tokens: 10500,
       stream: true,
     }),
   });

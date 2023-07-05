@@ -26,4 +26,4 @@ if (typeof window !== 'undefined') {
   database = getDatabase(app);
 }
 
-export { app, analytics, database };
+export { app, analytics, database, firebaseConfig };

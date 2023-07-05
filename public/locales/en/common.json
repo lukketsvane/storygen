@@ -32,5 +32,10 @@
   "supportingCauseDescription": "This month, we're contributing to support Dr. Bayan, as this tool is an attempt to contribute to society through technological innovation. The aim is to inspire both young and old to express their creativity and curiosity.",
   "supportingCauseText": "Help Syrian Doctor Bayan Practice Her Profession",
   "generatedCountText": "So far,",
-  "supportDevelopmentText": "stories have been generated. To support the further development of StoryGen, consider making a contribution."
+  "supportDevelopmentText": "stories have been generated. To support the further development of StoryGen, consider making a contribution.",
+  "dragImageText": "upload a picture of yourself or a loved one",
+  "footerText": "created by {link1} with love, in support of {link2}",
+  "salesTermsText": "Salgsbetingelser"
 }
+
+

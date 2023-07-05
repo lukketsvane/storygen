@@ -1,4 +1,4 @@
-import { OpenAIStream } from "@/utils/openai-image";
+import { OpenAIStreamReplica } from "@/utils/openai-replica";
 
 const MODEL_ID =
   "c4c54e3c8c97cd50c2d2fec9be3b6065563ccf7d43787fb99f84151b867178fe";
@@ -10,7 +10,24 @@ export const config = {
 
 const handler = async (req: Request): Promise<Response> => {
   const body = await req.json();
-  const { image, language } = body; // Add language to the request body
+  const { image } = body;
+
+  let language = "en"; // Default language is English
+
+  const referer = req.headers.get("referer");
+  if (referer) {
+    if (referer.endsWith("/es")) {
+      language = "es"; // Set language to Spanish
+    } else if (referer.endsWith("/fr")) {
+      language = "fr"; // Set language to French
+    } else if (referer.endsWith("/ar")) {
+      language = "ar"; // Set language to Arabic
+    } else if (referer.endsWith("/no")) {
+      language = "no"; // Set language to Norwegian
+    } else if (referer.endsWith("/zh")) {
+      language = "zh"; // Set language to Chinese
+    }
+  }
 
   console.log("Starting diffusion");
 
@@ -29,9 +46,9 @@ const handler = async (req: Request): Promise<Response> => {
 
   console.log("Got response from Replicate: ", explainImage);
 
-  // we're waiting with a timeout because the model takes a while to generate
-  // you can also setup a db + websocket to get notified when the model is done
-  // but while although better, it's a bit much for a smol project
+  // We're waiting with a timeout because the model takes a while to generate
+  // You can also set up a database + WebSocket to get notified when the model is done
+  // But while that's better, it might be too complex for a small project
   await new Promise((resolve) => setTimeout(resolve, 14000));
 
   console.log("Getting diffusion");
@@ -49,7 +66,7 @@ const handler = async (req: Request): Promise<Response> => {
 
   console.log("Got diffusion: ", output.length);
 
-  const stream = await OpenAIStream(output, language); // Pass the language to the OpenAIStream function
+  const stream = await OpenAIStreamReplica(output, language); // Pass the language to the OpenAIStreamReplica function
   return new Response(stream);
 };
 

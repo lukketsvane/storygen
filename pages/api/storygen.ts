@@ -1,4 +1,4 @@
-// ./pages/api/storygen.ts
+
 import { OpenAIStream } from "@/utils/openai";
 
 export const config = {
