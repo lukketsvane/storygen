@@ -13,7 +13,7 @@ import {
   useBreakpointValue,
   UnorderedList,
   ListItem,
-  HStack,
+  VStack,
   Divider,
   Tooltip,
 } from "@chakra-ui/react";
@@ -27,7 +27,6 @@ import { useTranslation } from "next-i18next";
 import Counter from "./shared/Counter";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
-import FileUploader from "./FileUploader";
 
 const HelpOverlay = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
@@ -124,7 +123,7 @@ const HelpOverlay = () => {
               {t("generatedCountText")} <Counter /> {t("supportDevelopmentText")}
             </Text>
             <Divider />
-            <HStack spacing={12} pt={6} pb={6} justifyContent="center">
+            <VStack spacing={2} pt={6} pb={6} justifyContent="center">
               <Link href="https://github.com/lukketsvane" isExternal>
                 {t("githubLinkText")}
               </Link>
@@ -137,25 +136,7 @@ const HelpOverlay = () => {
               >
                 {t("salesTermsText")}
               </Button>
-            </HStack>
-            <HStack spacing={12} pt={6} pb={6} justifyContent="center">
-              <IconButton
-                colorScheme="teal"
-                aria-label="Previous"
-                icon={<ArrowLeftIcon />}
-                onClick={handleArrowLeftClick}
-                borderRadius="50%"
-                disabled={!isOpen}
-              />
-              <IconButton
-                colorScheme="teal"
-                aria-label="Next"
-                icon={<ArrowRightIcon />}
-                onClick={handleArrowRightClick}
-                borderRadius="50%"
-                disabled={!isOpen}
-              />
-            </HStack>
+            </VStack>
           </>
         );
       case "page1":
@@ -218,10 +199,12 @@ const HelpOverlay = () => {
           <Box
             bg="white"
             borderRadius="md"
+            mt="8vh"
+        
             p={8}
             overflowY="auto"
-            maxH="90vh"
-            w={isMobile ? "100vw" : "60%"}
+            maxH="76vh"
+            w={isMobile ? "96vw" : "60%"}
             mx={isMobile ? 0 : "auto"}
           >
             {renderPageContent()}

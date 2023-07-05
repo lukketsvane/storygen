@@ -4,7 +4,7 @@ import { Box, Heading, Text, Link, UnorderedList, ListItem } from "@chakra-ui/re
 const Page1 = () => {
   return (
     <Box>
-      <Heading as="h1" size="xl" mt={6} mb={8}>
+      <Heading as="h1" size="xl" mt={6} mb={4}>
         Salgsbetingelser for StoryGen
       </Heading>
 

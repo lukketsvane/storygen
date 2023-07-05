@@ -116,7 +116,7 @@ const FileUploader = ({
               fontWeight="medium"
               pb={0.5}
             >
-              {t("common:dragImageText")}
+              {"Upload: drag & drop or click"} 
             </Text>
           </HStack>
         </HStack>

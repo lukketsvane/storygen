@@ -25,8 +25,8 @@ const LanguageButton = () => {
 
   return (
     <Menu>
-      <MenuButton  position="fixed" top={5} right={5} zIndex={20}>
-        <Image src={languageIcons[i18n.language]} boxSize="40px" />
+      <MenuButton as={Button} rightIcon={<ChevronDownIcon />} position="fixed" top={6} right={2} zIndex={20}>
+        <Image src={languageIcons[i18n.language]} boxSize="24px" />
       </MenuButton>
       <MenuList zIndex={20}>
         <MenuItem onClick={() => changeLanguage('no')}>
