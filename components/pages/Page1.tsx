@@ -63,7 +63,7 @@ const Page1 = () => {
       <Text>
         Ved å bruke tjenesten StoryGen inngår du en avtale med oss i henhold til
         disse salgsbetingelsene. Avtalen trer i kraft fra det tidspunktet du
-        begynner å bruke tjenesten, og har ingen bindingstid.
+        begynner å bruke tjenesten, og har ingen bindingstid. Brukeren kan endre avtalen, ved å klikke på “Administrer abonnement" hvor de endre eller avslutte abonnementet sitt.
       </Text>
 
       <Heading as="h1" size="lg" mt={6} mb={2}>
