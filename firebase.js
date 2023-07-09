@@ -1,5 +1,4 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import { getDatabase } from 'firebase/database';
 
 // Your web app's Firebase configuration
@@ -15,13 +14,11 @@ const firebaseConfig = {
 };
 
 let app;
-let analytics;
 let database;
 
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
-  analytics = getAnalytics(app);
   database = getDatabase(app);
 }
 
-export { app, analytics, database, firebaseConfig };
+export { app, database, firebaseConfig };
