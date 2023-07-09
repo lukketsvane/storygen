@@ -16,7 +16,7 @@ export async function OpenAITaleGenerator(age: number, name: string, role: strin
   }
 
   let ageGroup;
-  if (age >= 4 && age <= 7) {
+  if (age >= 0 && age <= 7) {
     ageGroup = "young";
   } else if (age > 7 && age <= 12) {
     ageGroup = "preteen";

@@ -65,7 +65,7 @@ const Home = () => {
             <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
               <ModalContent>
-                <ModalHeader>Generate Tale</ModalHeader>
+              <ModalHeader>{t('generateTale')}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                   <Tale />
