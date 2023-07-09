@@ -1,5 +1,5 @@
 # StoryGen 📖
-StoryGen lar brukere generere personlige, engasjerende og kreative historier for barn.
+StoryGen lar brukere generere personlige, engasjerende og kreative historier for barn. 
 
 ## Hvordan det fungerer
 Lag unike historier: Gi en kort beskrivelse av elementer som skal inkluderes i historien, slik som karakterer, omgivelser, handlinger, eller andre ideer.
