@@ -3,7 +3,7 @@ StoryGen lar brukere generere personlige, engasjerende og kreative historier for
 
 ## Hvordan det fungerer
 Lag unike historier: Gi en kort beskrivelse av elementer som skal inkluderes i historien, slik som karakterer, omgivelser, handlinger, eller andre ideer.
-Produser en historie: Ved å trykke på "Generer historie" knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie.
+Produser en historie: Ved å trykke på "Generer historie" knappen, bruker AI-teknologien beskrivelsen til å generere en unik og engasjerende historie. 
 Prøv lykken: Hvis du er usikker på hva du skal skrive, kan du trykke på "Prøv lykken" knappen for å fylle tekstfeltet med en tilfeldig valgt eksempeltekst, som deretter brukes til å generere en historie.
 
 ## Oppsett
