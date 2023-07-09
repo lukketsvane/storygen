@@ -1,18 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Heading,
-  VStack,
-  Image,
-  Text,
-  Box,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Heading, VStack, Image, Text, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import DescriptionInput from "@/components/DescriptionInput";
 import { database } from "@/firebase";
@@ -31,7 +18,7 @@ const Home = () => {
   const [story, setStory] = useState<string | null>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [image, setImage] = useState<File | null>(null);
-  const [imagine, setImagine] = useState<string | null>("");
+  const [imagine, setImagine] = useState<string | null>(null);
   const [cancelGeneration, setCancelGeneration] = useState<boolean>(false);
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -78,7 +65,7 @@ const Home = () => {
             <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
               <ModalContent>
-                <ModalHeader>{t('generateTale')}</ModalHeader>
+              <ModalHeader>{t('generateTale')}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                   <Tale />
@@ -145,18 +132,7 @@ const Home = () => {
   );
 };
 
-export async function getServerSideProps({ locale, req, res }) {
-  // Check the 'Host' header to determine if the request comes from 'storygen.no' or 'www.storygen.no'
-  const host = req.headers.host;
-
-  if (host === 'storygen.no' || host === 'www.storygen.no') {
-    // If the locale is not 'no', redirect to '/no'
-    if (locale !== 'no') {
-      res.writeHead(302, { Location: '/no' });
-      res.end();
-    }
-  }
-  
+export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),
