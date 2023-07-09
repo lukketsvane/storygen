@@ -6,6 +6,12 @@ import { appWithTranslation } from 'next-i18next';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  
+  useEffect(() => {
+    if (router.locale === undefined) {
+      router.push('/no');
+    }
+  }, []);
 
   return (
     <ChakraProvider>
@@ -13,13 +19,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ChakraProvider>
   );
 }
-
-MyApp.getInitialProps = async ({ ctx }) => {
-  if (ctx.req && ctx.locale !== 'no') {
-    ctx.res?.writeHead(302, { Location: '/no' });
-    ctx.res?.end();
-  }
-  return { pageProps: {} };
-};
 
 export default appWithTranslation(MyApp);
