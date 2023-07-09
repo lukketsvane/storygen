@@ -80,7 +80,7 @@ export async function OpenAITaleGenerator(age: number, name: string, role: strin
       messages: [
         { role: "system", content: contentMessage }
       ],
-      max_tokens: 3500,
+      max_tokens: 750,
       stream: true,
     }),
   });

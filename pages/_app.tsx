@@ -7,11 +7,7 @@ import { appWithTranslation } from 'next-i18next';
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  useEffect(() => {
-    if (router.locale === '') {
-      router.replace('/no');
-    }
-  }, [router.locale]);
+
 
   return (
     <ChakraProvider>
