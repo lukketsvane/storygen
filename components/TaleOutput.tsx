@@ -51,7 +51,7 @@ const TaleOutput = ({ description, tale, loading, cancelGeneration }: TaleOutput
   }, [loading]);
 
   const formatTale = (tale: string) => {
-    return tale.replace(/(\n\n)(?!<b style="color: black;">Side 6:<\/b>)/g, "<br />").replace(/(Side \d+:)/g, '<b style="color: black;">$1</b>');
+    return tale.replace(/(\n\n)/g, "<br />");
   }
 
   const handleCopy = () => {
@@ -70,10 +70,7 @@ const TaleOutput = ({ description, tale, loading, cancelGeneration }: TaleOutput
 
   return (
     <Stack
-      w={{
-        base: "full",
-        md: "60%",
-      }}
+      w="full"
       direction={{ base: "column", md: "row" }}
       px={{ base: 8, md: 0 }}
       pb={{ base: 12, md: 0 }}
@@ -82,7 +79,7 @@ const TaleOutput = ({ description, tale, loading, cancelGeneration }: TaleOutput
         p={2}
         rounded="md"
         h="full"
-        w={{ base: "full", md: "80rem" }}
+        w="full"
       >
         {!cancelGeneration && tale && <p style={{ color: "black", fontFamily: "'IBM Plex Mono', monospace", fontSize: "16px", fontWeight: "500" }} dangerouslySetInnerHTML={{ __html: formatTale(tale.replace(/\n/g, "<br />")) }} />}
         {loading && !cancelGeneration && <LoadingText />}
