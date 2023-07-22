@@ -72,7 +72,7 @@ const Home = () => {
               objectFit="cover"
               borderRadius="lg"
               maxW="100%"
-              maxH="60%"
+              maxH="80%"
               onClick={onOpen}
             />
             <Modal isOpen={isOpen} onClose={onClose}>

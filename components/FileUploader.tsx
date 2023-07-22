@@ -103,7 +103,7 @@ const FileUploader = ({
           cursor={loading ? "not-allowed" : "pointer"}
           position="relative"
           overflow="hidden"
-          max-width="70%"
+          max-width="80%"
           height="fit-content"
         >
           <HStack spacing="12 fit-center mx-4">
