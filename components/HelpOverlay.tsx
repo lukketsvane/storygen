@@ -26,7 +26,6 @@ import {
 import { useTranslation } from "next-i18next";
 import Counter from "./shared/Counter";
 import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
 
 const HelpOverlay = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
@@ -42,8 +41,6 @@ const HelpOverlay = () => {
   const handleArrowLeftClick = () => {
     setCurrentPage((prevPage) => {
       if (prevPage === "main") {
-        return "page2";
-      } else if (prevPage === "page2") {
         return "page1";
       } else if (prevPage === "page1") {
         return "main";

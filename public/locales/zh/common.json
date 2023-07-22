@@ -36,7 +36,12 @@
   "supportDevelopmentText": "个故事。为了支持 StoryGen 的进一步开发，请考虑做出贡献。",
   "dragImageText": "上传一张您自己或您所爱的人的照片",
   "footerText": "由@tastefinger制作，以爱心支持Dr. Bayan",
-  "salesTermsText": "Salgsbetingelser"
-
+  "salesTermsText": "Salgsbetingelser",
+  "generateTale": "生成故事",
+  "name": "姓名",
+  "age": "年龄",
+  "role": "角色",
+  "theme": "主题",
+  "uploadInstructions": "上传：拖放或点击"
 
 }

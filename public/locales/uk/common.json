@@ -36,5 +36,11 @@
   "supportDevelopmentText": "було згенеровано історій. Щоб підтримати подальший розвиток StoryGen, розгляньте можливість внесення внеску.",
   "dragImageText": "завантажте зображення себе або коханої людини",
   "footerText": "створено @tastefinger з любов'ю, на підтримку Dr. Bayan",
-  "salesTermsText": "Salgsbetingelser"
+  "salesTermsText": "Salgsbetingelser",
+  "generateTale": "Створити казку",
+  "name": "Ім'я",
+  "age": "Вік",
+  "role": "Роль",
+  "theme": "Тема",
+  "uploadInstructions": "Завантажити: перетягнути і відпустити або натиснути"
 }

@@ -106,17 +106,18 @@ const FileUploader = ({
           max-width="70%"
           height="fit-content"
         >
-          <HStack spacing="4">
+          <HStack spacing="12 fit-center mx-4">
             <AiOutlineCloudUpload size={iconSize} />
             <Text
               fontSize={{
                 base: "xs",
                 md: "lg",
+                mx: "l",
               }}
               fontWeight="medium"
               pb={0.5}
             >
-              {"Upload: drag & drop or click"} 
+              {t('')}
             </Text>
           </HStack>
         </HStack>

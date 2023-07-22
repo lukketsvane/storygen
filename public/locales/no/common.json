@@ -39,6 +39,12 @@
   "githubLinkText": "https://github.com/lukketsvane",
   "orgNumberText": "Organisasjonsnummer:  919 598 107",
   "emailText": "e-post: iverfinne@gmail.com",
-  "salesTermsText": "Salgsbetingelser"
-}
+  "salesTermsText": "Salgsbetingelser",
+  "generateTale": "Generer fortelling",
+  "name": "Navn",
+  "age": "Alder",
+  "role": "Rolle",
+  "theme": "Tema",
+  "uploadInstructions": "dra og slipp et bilde!"
 
+}

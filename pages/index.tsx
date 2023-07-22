@@ -1,5 +1,18 @@
 import { useState, useEffect } from "react";
-import { Heading, VStack, Image, Text, Box } from "@chakra-ui/react";
+import {
+  Heading,
+  VStack,
+  Image,
+  Text,
+  Box,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import DescriptionInput from "@/components/DescriptionInput";
 import { database } from "@/firebase";
@@ -7,6 +20,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import FileUploader from "@/components/FileUploader";
 import StoryOutput from "@/components/StoryOutput";
 import ImagineOutput from "@/components/ImagineOutput";
+import Tale from "./tale";
 import { useRouter } from "next/router";
 import { Link } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
@@ -17,9 +31,10 @@ const Home = () => {
   const [story, setStory] = useState<string | null>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [image, setImage] = useState<File | null>(null);
-  const [imagine, setImagine] = useState<string | null>(null);
+  const [imagine, setImagine] = useState<string | null>("");
   const [cancelGeneration, setCancelGeneration] = useState<boolean>(false);
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const { locale } = router;
@@ -50,20 +65,27 @@ const Home = () => {
             />
           </Box>
         ) : (
-          <Box w="300px" h="300px" m={2} pt={16} display="flex" alignItems="center" justifyContent="center">
-            <Link href="https://www.spleis.no/project/324720">
-              <Image
-                src="/header.png"
-                alt="header image"
-                objectFit="cover"
-                borderRadius="lg"
-                maxW="100%"
-                maxH="60%"
-              />
-            </Link>
-            
+          <Box w="300px" h="300px" m={2} pt={2} display="flex" alignItems="center" justifyContent="center">
+            <Image
+              src="/header.png"
+              alt="header image"
+              objectFit="cover"
+              borderRadius="lg"
+              maxW="100%"
+              maxH="60%"
+              onClick={onOpen}
+            />
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>{t('generateTale')}</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Tale />
+                </ModalBody>
+              </ModalContent>
+            </Modal>
           </Box>
-          
         )}
 
         <Heading
@@ -73,28 +95,27 @@ const Home = () => {
           }}
           size={{
             base: "xl",
-            md: "xl",
+            md: "l",
           }}
           pt= "2"
           color="black"
         >
           {t("title")} 📖
         </Heading>
-<FileUploader
-            loading={loading}
-            setImage={setImage}
-            setImagine={setImagine}
-            setLoading={setLoading}
-          />
 
-          
+        <FileUploader
+          loading={loading}
+          setImage={setImage}
+          setImagine={setImagine}
+          setLoading={setLoading}
+        />
+
         <DescriptionInput
           loading={loading}
           setDescription={setDescription}
           setStory={setStory}
           setLoading={setLoading}
           database={database}
-          
         />
 
         {/* Output component */}
@@ -124,7 +145,18 @@ const Home = () => {
   );
 };
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale, req, res }) {
+  // Check the 'Host' header to determine if the request comes from 'storygen.no' or 'www.storygen.no'
+  const host = req.headers.host;
+
+  if (host === 'storygen.no' || host === 'www.storygen.no') {
+    // If the locale is not 'no', redirect to '/no'
+    if (locale !== 'no') {
+      res.writeHead(302, { Location: '/no' });
+      res.end();
+    }
+  }
+  
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common"])),

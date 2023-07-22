@@ -36,6 +36,12 @@
   "supportDevelopmentText": "قصة. لدعم التطوير المستقبلي لـ StoryGen، افكر في المساهمة.",
   "dragImageText": "قم بسحب الصورة إلى القصة",
   "footerText": "تم إنشاؤه بواسطة @tastefinger بمحبة، لدعم Dr. Bayan",
-  "salesTermsText": "Salgsbetingelser"
+  "salesTermsText": "Salgsbetingelser",
+  "generateTale": "توليد القصة",
+  "name": "الاسم",
+  "age": "العمر",
+  "role": "الدور",
+  "theme": "الموضوع",
+  "uploadInstructions": "تحميل: اسحب وأفلت أو انقر"
 
 }

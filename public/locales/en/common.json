@@ -35,7 +35,12 @@
   "supportDevelopmentText": "stories have been generated. To support the further development of StoryGen, consider making a contribution.",
   "dragImageText": "upload a picture of yourself or a loved one",
   "footerText": "created by @tastefinger with love, in support of Dr. Bayan",
-  "salesTermsText": "Salgsbetingelser"
+  "salesTermsText": "Sales terms",
+  "generateTale": "Generate Tale",
+  "name": "Name",
+  "age": "Age",
+  "role": "Role",
+  "theme": "Theme",
+  "uploadInstructions": "Upload: drag & drop or click"
+
 }
-
-

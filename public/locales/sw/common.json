@@ -36,5 +36,12 @@
   "supportDevelopmentText": "hadithi zimezalishwa. Ili kusaidia maendeleo zaidi ya StoryGen, fikiria kutoa mchango.",
   "dragImageText": "Pakia picha yako au ya mtu unaempenda",
   "footerText": "imeundwa na @tastefinger kwa upendo, kwa kusaidia Dr. Bayan",
-  "salesTermsText": "Salgsbetingelser"
+  "salesTermsText": "Salgsbetingelser",
+  "generateTale": "Unda Hadithi",
+  "name": "Jina",
+  "age": "Umri",
+  "role": "Wajibu",
+  "theme": "Mada",
+  "uploadInstructions": "Pakia: buruta na kuacha au bonyeza"
+
 }
